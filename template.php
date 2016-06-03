@@ -420,7 +420,7 @@ function ebi_framework_preprocess_html(&$variables) {
   if (strlen(theme_get_setting('ebi_framework_style')) > 0) {
     drupal_add_css(theme_get_setting('ebi_framework_style'), array('type' => 'external'));
   } else {
-    drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/embl-petrol-colours.css', array('type' => 'external'));
+    drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-embl-petrol.css', array('type' => 'external'));
   }
   drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/ebi-global-drupal.css', array('type' => 'external'));
 
