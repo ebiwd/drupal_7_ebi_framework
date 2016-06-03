@@ -1,0 +1,103 @@
+name = EBI Framework
+description = Drupal implementation of the Zurb Foundation 6.x framework. A variant developed by EMBL-EBI.
+core = 7.x
+engine = phptemplate
+
+; Image appears on admin/appearance
+screenshot = images/screenshot.jpg
+
+; These will be loaded from the CDN via template.php
+  ; Foundation framework stylesheets
+  ; stylesheets[all][] = css/foundation.css
+
+  ; Foundation framework scripts.
+  ; scripts[] = js/foundation.min.js
+  ; scripts[] = js/app.js
+
+  ; MTP/EBI specific JS and CSS
+  ; scripts[] = ebi-framework-cdn/js/foot.js
+  ; scripts[] = ebi-framework-cdn/js/script.js
+  ; scripts[] = ebi-framework-cdn/js/cookiebanner.js
+  ; scripts[] = ebi-framework-cdn/js/fontpresentation.js
+  ; scripts[] = ebi-framework-cdn/libraries/modernizr/modernizr.custom.49274.js
+
+  ; stylesheets[all][] = ebi-framework-cdn/css/colour-template.css
+  ; stylesheets[all][] = ebi-framework-cdn/fonts/fonts.css
+  ; stylesheets[all][] = ebi-framework-cdn/css/ebi-global.css
+  ; stylesheets[all][] = ebi-framework-cdn/css/ebi-global-drupal.css
+  ; stylesheets[all][] = ebi-framework-cdn/css/ebi-training-colours.css
+
+; Bonus customisations 
+scripts[] = js/app.js
+stylesheets[all][] = css/app.css
+
+; Regions are output in the page.tpl.php
+regions[header]              = Header
+regions[help]                = Help
+regions[highlighted]         = Highlighted
+regions[featured]            = Featured
+regions[content]             = Content
+regions[sidebar_first]       = Left Sidebar
+regions[sidebar_second]      = Right Sidebar
+regions[triptych_first]      = Callout one
+regions[triptych_middle]     = Callout two
+regions[triptych_last]       = Callout three
+regions[footer_firstcolumn]  = Footer one
+regions[footer_secondcolumn] = Footer two
+regions[footer_thirdcolumn]  = Footer three
+regions[footer_fourthcolumn] = Footer four
+regions[footer]              = Footer
+
+; Panel Layouts
+plugins[panels][layouts] = layouts
+
+; Theme settings:
+
+; Top Bar
+settings[ebi_framework_top_bar_enable] = 0
+settings[ebi_framework_version] = '1.1'
+settings[ebi_framework_style] = ''
+settings[ebi_framework_top_bar_grid] = 0
+settings[ebi_framework_top_bar_sticky] = 0
+settings[ebi_framework_top_bar_menu_text] = 'Menu'
+settings[ebi_framework_top_bar_custom_back_text] = 1
+settings[ebi_framework_top_bar_back_text] = 'Back'
+settings[ebi_framework_top_bar_is_hover] = 1
+settings[ebi_framework_top_bar_scrolltop] = 1
+settings[ebi_framework_top_bar_mobile_show_parent_link] = 1
+
+; Tooltips
+settings[ebi_framework_tooltip_enable] = 0
+settings[ebi_framework_tooltip_position] = 'top'
+settings[ebi_framework_tooltip_mode] = 'text'
+settings[ebi_framework_tooltip_text] = 'More information?'
+settings[ebi_framework_tooltip_touch] = 0
+
+; Styles and Scripts
+settings[ebi_framework_disable_core_css] = 0
+
+; Misc
+settings[ebi_framework_html_tags] = 1
+settings[ebi_framework_messages_modal] = 1
+settings[ebi_framework_messages_modal_static] = 0
+settings[ebi_framework_pager_center] = 1
+
+version = "7.x-1.1-dev"
+core = "7.x"
+project = "ebi_framework"
+
+
+; Information added by drush on 2016-03-16
+version = "7.x-1.1-dev-dev"
+core = "7.x"
+project = "ebi_framework"
+datestamp = "1458124105"
+
+
+
+; Information added by drush on 2016-04-22
+version = "7.x-1.1-dev-dev"
+core = "7.x"
+project = "ebi_framework"
+datestamp = "1461319405"
+
