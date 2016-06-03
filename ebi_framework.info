@@ -86,18 +86,3 @@ version = "7.x-1.1-dev"
 core = "7.x"
 project = "ebi_framework"
 
-
-; Information added by drush on 2016-03-16
-version = "7.x-1.1-dev-dev"
-core = "7.x"
-project = "ebi_framework"
-datestamp = "1458124105"
-
-
-
-; Information added by drush on 2016-04-22
-version = "7.x-1.1-dev-dev"
-core = "7.x"
-project = "ebi_framework"
-datestamp = "1461319405"
-

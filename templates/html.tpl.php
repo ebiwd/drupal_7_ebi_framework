@@ -94,19 +94,19 @@
 
   <!-- If you have custom icon, replace these as appropriate.
        You can generate them at realfavicongenerator.net -->
-  <link rel="icon" type="image/x-icon" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/favicon.ico" />
-  <link rel="icon" type="image/png" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="192×192" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/android-chrome-192x192.png" /> <!-- Android (192px) -->
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-114x114.png"> <!-- For iPhone 4 Retina display (114px) -->
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-72x72.png"> <!-- For iPad (72px) -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-144x144.png"> <!-- For iPad retinat (144px) -->
-  <link rel="apple-touch-icon-precomposed" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-57x57.png"> <!-- For iPhone (57px) -->
-  <link rel="mask-icon" href="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/safari-pinned-tab.svg" color="#ffffff"> <!-- Safari icon for pinned tab -->
+  <link rel="icon" type="image/x-icon" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192×192" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/android-chrome-192x192.png" /> <!-- Android (192px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-114x114.png"> <!-- For iPhone 4 Retina display (114px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-72x72.png"> <!-- For iPad (72px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-144x144.png"> <!-- For iPad retinat (144px) -->
+  <link rel="apple-touch-icon-precomposed" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-57x57.png"> <!-- For iPhone (57px) -->
+  <link rel="mask-icon" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/safari-pinned-tab.svg" color="#ffffff"> <!-- Safari icon for pinned tab -->
   <meta name="msapplication-TileColor" content="#2b5797"> <!-- MS Icons -->
-  <meta name="msapplication-TileImage" content="https://khawkins98.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/mstile-144x144.png">
+  <meta name="msapplication-TileImage" content="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/mstile-144x144.png">
 
   <!-- <meta name="ebi-localmasthead-color" content="#241a00">  -->
-  <!-- <meta name="ebi-localmasthead-image" content="https://khawkins98.github.io/EBI-Framework/images/backgrounds/training-yellow-2.jpg"> -->
+  <!-- <meta name="ebi-localmasthead-image" content="https://ebiwd.github.io/EBI-Framework/images/backgrounds/training-yellow-2.jpg"> -->
   <meta name="ebi-localmasthead-image" content="/training/bioinformatics-for-discovery/sites/ebi.ac.uk.training.bioinformatics-for-discovery/themes/custom/ebi_framework_sub_bod/images/training-yellow-3.jpg">
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
