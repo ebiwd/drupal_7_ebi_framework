@@ -86,7 +86,7 @@
 
           <!-- local-title -->
           <div class="columns medium-12" id="local-title">
-            <h1><a href="<?php print base_path(); ?>" title="Back to [service-name] homepage"><div class="hexagon"><i class="icon icon-generic" data-icon="t"></i></div> <?php print $variables['site_name']; ?></a></h1>
+            <h1><a href="<?php print base_path(); ?>" title="Back to <?php print $variables['site_name']; ?> homepage"><?php print $variables['site_name']; ?></a></h1>
           </div>
           <!-- /local-title -->
 

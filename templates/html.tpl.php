@@ -107,7 +107,6 @@
 
   <!-- <meta name="ebi-localmasthead-color" content="#241a00">  -->
   <!-- <meta name="ebi-localmasthead-image" content="https://ebiwd.github.io/EBI-Framework/images/backgrounds/training-yellow-2.jpg"> -->
-  <meta name="ebi-localmasthead-image" content="/training/bioinformatics-for-discovery/sites/ebi.ac.uk.training.bioinformatics-for-discovery/themes/custom/ebi_framework_sub_bod/images/training-yellow-3.jpg">
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
