@@ -269,6 +269,13 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#collapsible' => TRUE,
     );
 
+    $form['ebi_framework']['breadcrumb']['ebi_framework_use_second_breadcrumb_in_header'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use the parent breadcrumb structure as the localnav title'),
+      '#description' => t('If enabled and there is a parent breadcumb, it will be used in the local title. This is appropriate for Research, Services, About, etc.'),
+      '#default_value' => theme_get_setting('ebi_framework_use_second_breadcrumb_in_header'),
+    );
+
     $form['ebi_framework']['breadcrumb']['ebi_framework_show_pagetitle_as_crumb'] = array(
       '#type' => 'checkbox',
       '#title' => t('Show page title as last breadcrumb'),

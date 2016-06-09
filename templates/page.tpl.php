@@ -15,11 +15,11 @@
               <ul id="global-nav" class="menu">
                 <!-- set active class as appropriate -->
                 <li id="home-mobile" class=""><a href="//www.ebi.ac.uk"></a></li>
-                <li id="home"><a href="//www.ebi.ac.uk"><i class="icon icon-generic" data-icon="H"></i> EMBL-EBI</a></li>
-                <li id="services"><a href="//www.ebi.ac.uk/services"><i class="icon icon-generic" data-icon="("></i> Services</a></li>
-                <li id="research"><a href="//www.ebi.ac.uk/research"><i class="icon icon-generic" data-icon=")"></i> Research</a></li>
-                <li id="training" class="active"><a href="//www.ebi.ac.uk/training"><i class="icon icon-generic" data-icon="t"></i> Training</a></li>
-                <li id="about"><a href="//www.ebi.ac.uk/about"><i class="icon icon-generic" data-icon="i"></i> About us</a></li>
+                <li id="home" class="<?php print $variables['active_in_global_nav']['home']; ?>"><a href="//www.ebi.ac.uk"><i class="icon icon-generic" data-icon="H"></i> EMBL-EBI</a></li>
+                <li id="services" class="<?php print $variables['active_in_global_nav']['services']; ?>"><a href="//www.ebi.ac.uk/services"><i class="icon icon-generic" data-icon="("></i> Services</a></li>
+                <li id="research" class="<?php print $variables['active_in_global_nav']['research']; ?>"><a href="//www.ebi.ac.uk/research"><i class="icon icon-generic" data-icon=")"></i> Research</a></li>
+                <li id="training"  class="<?php print $variables['active_in_global_nav']['training']; ?>"><a href="//www.ebi.ac.uk/training"><i class="icon icon-generic" data-icon="t"></i> Training</a></li>
+                <li id="about" class="<?php print $variables['active_in_global_nav']['about']; ?>"><a href="//www.ebi.ac.uk/about"><i class="icon icon-generic" data-icon="i"></i> About us</a></li>
                 <li id="search">
                   <a href="#" data-toggle="search-global-dropdown"><i class="icon icon-functional" data-icon="1"></i> <span class="show-for-small-only">Search</span></a>
                   <div id="search-global-dropdown" class="dropdown-pane" data-dropdown data-options="closeOnClick:true;">
@@ -86,7 +86,7 @@
 
           <!-- local-title -->
           <div class="columns medium-12" id="local-title">
-            <h1><a href="<?php print base_path(); ?>" title="Back to <?php print $variables['site_name']; ?> homepage"><?php print $variables['site_name']; ?></a></h1>
+            <h1><a href="<?php print $variables['local_title_path'] ?>" title="Back to <?php print $variables['local_title']; ?>"><?php print $variables['local_title']; ?></a></h1>
           </div>
           <!-- /local-title -->
 

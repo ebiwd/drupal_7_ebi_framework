@@ -896,6 +896,50 @@ function ebi_framework_preprocess_page(&$variables) {
   if (theme_get_setting('ebi_framework_messages_modal')) {
     // drupal_add_js(drupal_get_path('theme', 'ebi_framework') . '/js/behavior/reveal.js');
   }
+
+  // For the local header:
+  // Determine if we should show the site name or section name.
+  $breadcrumb = drupal_get_breadcrumb();
+  if ( (!empty($breadcrumb[1])) && theme_get_setting('ebi_framework_use_second_breadcrumb_in_header') ) {
+    $variables['local_title'] = strip_tags($breadcrumb[1]);
+    $process_path = new SimpleXMLElement($breadcrumb[1]);
+    $variables['local_title_path'] = $process_path['href'];
+  } else {
+    $variables['local_title'] = $variables['site_name'];
+    $variables['local_title_path'] = base_path();
+  }
+
+  // For the globalnav:
+  // Determine which section is active.
+  $variables['active_in_global_nav']['home'] = '';
+  $variables['active_in_global_nav']['services'] = '';
+  $variables['active_in_global_nav']['research'] = '';
+  $variables['active_in_global_nav']['training'] = '';
+  $variables['active_in_global_nav']['about'] = '';
+
+  $url_parts = explode('/', drupal_get_path_alias());
+  switch($url_parts[0]) {
+    case 'services':
+    case 'research':
+    case 'training':
+    case 'industry':
+    case 'about':
+      $variables['active_in_global_nav'][$url_parts[0]] = 'active';
+      break;
+    default:
+      $variables['active_in_global_nav']['home'] = 'active';
+  };
+
+  $breadcrumb = drupal_get_breadcrumb();
+  if ( (!empty($breadcrumb[1])) && theme_get_setting('ebi_framework_use_second_breadcrumb_in_header') ) {
+    $variables['local_title'] = strip_tags($breadcrumb[1]);
+    $process_path = new SimpleXMLElement($breadcrumb[1]);
+    $variables['local_title_path'] = $process_path['href'];
+  } else {
+    $variables['local_title'] = $variables['site_name'];
+    $variables['local_title_path'] = base_path();
+  }
+
 }
 
 /**
