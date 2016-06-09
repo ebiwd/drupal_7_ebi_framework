@@ -55,11 +55,17 @@ function ebi_framework_html_head_alter(&$head_elements) {
 function ebi_framework_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
 
+  // Trim breadcumbs according to theme config
   if (!empty($breadcrumb)) {
-    // Go home "home" breadcrumb
-    unset($breadcrumb[0]);
+    // how many crumbs to trim?
+    $howmanytotrim = min((int)theme_get_setting('ebi_framework_strip_first_breadcrumb'),count($breadcrumb));
+
+    for ($i=0; $i < $howmanytotrim; $i++) { 
+      unset($breadcrumb[$i]);
+    }
   }
 
+  // Show crumbs that haven't been culled
   if (!empty($breadcrumb)) {
 
     // Provide a navigational heading to give context for breadcrumb links to
@@ -72,8 +78,12 @@ function ebi_framework_breadcrumb($variables) {
       $breadcrumbs .= '<li>' . $value . '</li>';
     }
 
-    $title = strip_tags(drupal_get_title());
-    $breadcrumbs .= '<li class="current"><a href="#">' . $title . '</a></li>';
+    // Uncomment if you wish to show the current page at the trail of the breadcrumb
+    if (theme_get_setting('ebi_framework_show_pagetitle_as_crumb') == 1) {
+      $title = strip_tags(drupal_get_title());
+      $breadcrumbs .= '<li class="current"><a href="#">' . $title . '</a></li>';
+    }
+    
     $breadcrumbs .= '</ul>';
 
     return $breadcrumbs;

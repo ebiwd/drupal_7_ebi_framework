@@ -263,6 +263,36 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
     /*
      * Misc Settings.
      */
+    $form['ebi_framework']['breadcrumb'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Breadcrumb Settings'),
+      '#collapsible' => TRUE,
+    );
+
+    $form['ebi_framework']['breadcrumb']['ebi_framework_show_pagetitle_as_crumb'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show page title as last breadcrumb'),
+      '#description' => t(''),
+      '#default_value' => theme_get_setting('ebi_framework_show_pagetitle_as_crumb'),
+    );
+
+    $form['ebi_framework']['breadcrumbs']['ebi_framework_strip_first_breadcrumb'] = array(
+      '#type' => 'select',
+      '#title' => t('Strip breadcrumb'),
+      '#description' => t('How many levels of breadcrumbs do you want to strip from display?'),
+      '#options' => array(
+        '0' => t('None'),
+        '1' => t('One (default)'),
+        '2' => t('Two'),
+        '3' => t('Three'),
+        '4' => t('Four'),
+      ),
+      '#default_value' => theme_get_setting('ebi_framework_strip_first_breadcrumb'),
+    );
+
+    /*
+     * Misc Settings.
+     */
     $form['ebi_framework']['misc'] = array(
       '#type' => 'fieldset',
       '#title' => t('Misc Settings'),
@@ -296,5 +326,6 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#description' => t('Uncheck this option to align pagers to the left. For more information on Foundation Pagers, please refer to the <a href="!link" target="_blank">documentation</a>.', array('!link' => 'http://foundation.zurb.com/docs/components/pagination.html')),
       '#default_value' => theme_get_setting('ebi_framework_pager_center'),
     );
+
   }
 }
