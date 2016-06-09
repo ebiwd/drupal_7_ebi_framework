@@ -420,10 +420,32 @@ function ebi_framework_preprocess_html(&$variables) {
   if (strlen(theme_get_setting('ebi_framework_style')) > 0) {
     drupal_add_css(theme_get_setting('ebi_framework_style'), array('type' => 'external'));
   } else {
-    drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-embl-petrol.css', array('type' => 'external'));
+    // autodetect the appropriate theme by the url, /research /services, etc.
+    $url_parts = explode('/', drupal_get_path_alias());
+    switch($url_parts[0]) {
+      case 'services':
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-services-about.css', array('type' => 'external'));
+        break;
+      case 'research':
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-research.css', array('type' => 'external'));
+        break;
+      case 'training':
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-training.css', array('type' => 'external'));
+        break;
+      case 'industry':
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-industry.css', array('type' => 'external'));
+        break;
+      case 'about':
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-services-about.css', array('type' => 'external'));
+        break;
+      case 'pdbe':
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-pdbe-green.css', array('type' => 'external'));
+        break;
+      default:
+        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-embl-petrol.css', array('type' => 'external'));
+    };
   }
   drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/ebi-global-drupal.css', array('type' => 'external'));
-
 
   drupal_add_js('https://ebiwd.github.io/EBI-Framework/libraries/modernizr/modernizr.custom.49274.js', array('type' => 'external', 'scope' => 'header'));
 
