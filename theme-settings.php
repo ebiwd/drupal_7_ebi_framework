@@ -283,7 +283,7 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#default_value' => theme_get_setting('ebi_framework_show_pagetitle_as_crumb'),
     );
 
-    $form['ebi_framework']['breadcrumbs']['ebi_framework_strip_first_breadcrumb'] = array(
+    $form['ebi_framework']['breadcrumb']['ebi_framework_strip_first_breadcrumb'] = array(
       '#type' => 'select',
       '#title' => t('Strip breadcrumb'),
       '#description' => t('How many levels of breadcrumbs do you want to strip from display?'),
