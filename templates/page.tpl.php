@@ -90,9 +90,7 @@
             <?php if (!empty($page['header'])): ?>
               <!--.l-header-region -->
               <section class="l-header-region row">
-                <div class="columns">
-                  <?php print render($page['header']); ?>
-                </div>
+                <?php print render($page['header']); ?>
               </section>
               <!--/.l-header-region -->
             <?php endif; ?>

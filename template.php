@@ -283,6 +283,7 @@ function ebi_framework_preprocess_block(&$variables) {
 
   // In the header region visually hide block titles.
   if ($variables['block']->region == 'header') {
+    $variables['classes_array'][] = 'columns';
     $title_class[] = 'element-invisible';
   }
 

@@ -10,8 +10,14 @@ USING THIS THEME
 ----------------------------------
 Do not edit this theme directly, but create a Drupal sub theme: https://www.drupal.org/node/225125
 
+MODULES
+-------
+- To use the Foundation JS, you'll need jQuery Update
+- For responsive blocks, install block_class, no need to modifyl block.tpl.php
+
+
 TINYMCE
--
+-------
 To integrate this theme with TinyMCE, configure your editor profile in Drupal by:
 1) Under "Editor CSS" select "Define CSS"
 2) Under "CSS path", use: //ebiwd.github.io/EBI-Framework/libraries/foundation-6/css/foundation.css,//ebiwd.github.io/EBI-Framework/css/ebi-global.css,//ebiwd.github.io/EBI-Framework/fonts/fonts.css,//ebiwd.github.io/EBI-Framework/css/theme-embl-petrol.css
