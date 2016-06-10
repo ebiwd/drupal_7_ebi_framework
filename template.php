@@ -807,7 +807,8 @@ function ebi_framework_preprocess_page(&$variables) {
       ),
     ));
   } else {
-    $variables['alt_secondary_menu'] = '<!-- We are manually jaming this in as drupal unsets the secondary menu if the page has no menu entry! --> <h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="menu"> <li class=" first  menu-472"><a href="/training/bioinformatics-for-discovery/bioinformatics-discovery" title="">Sample item from template.php</a></li></ul>';
+    // If you wish to offer an empty option, specify it here
+    // $variables['alt_secondary_menu'] = '<h2 class="element-invisible">Secondary menu</h2><ul id="secondary-menu-links" class="menu"> <li class=" first  menu-472"><a href="/" title="">Sample item from template.php</a></li></ul>';
   }
 
 
