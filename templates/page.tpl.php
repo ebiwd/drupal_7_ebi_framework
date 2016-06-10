@@ -87,6 +87,15 @@
           <!-- local-title -->
           <div class="columns medium-12" id="local-title">
             <h1><a href="<?php print $variables['local_title_path'] ?>" title="Back to <?php print $variables['local_title']; ?>"><?php print $variables['local_title']; ?></a></h1>
+            <?php if (!empty($page['header'])): ?>
+              <!--.l-header-region -->
+              <section class="l-header-region row">
+                <div class="columns">
+                  <?php print render($page['header']); ?>
+                </div>
+              </section>
+              <!--/.l-header-region -->
+            <?php endif; ?>
           </div>
           <!-- /local-title -->
 
@@ -143,19 +152,6 @@
           <!-- /local-nav -->
 
         </div>
-
-
-
-
-        <?php if (!empty($page['header'])): ?>
-          <!--.l-header-region -->
-          <section class="l-header-region row">
-            <div class="columns">
-              <?php print render($page['header']); ?>
-            </div>
-          </section>
-          <!--/.l-header-region -->
-        <?php endif; ?>
 
       </header>
     </div>
