@@ -10,6 +10,9 @@ USING THIS THEME
 ----------------------------------
 Do not edit this theme directly, but create a Drupal sub theme: https://www.drupal.org/node/225125
 
+- You can load path-specific custom CSS in the theme settings under "Styles and Scripts"
+- If you need compatibility with the old compliance theme, load the /EBI-Framework/css/compliance-legacy-compatibility.css on any needed pages
+
 MODULES
 -------
 - To use the Foundation JS, you'll need jQuery Update
