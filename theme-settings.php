@@ -77,13 +77,11 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
     );
 
     $form['ebi_framework']['framework']['ebi_framework_style'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Styling'),
-      '#size' => 40, 
-      '#maxlength' => 400, 
+      '#type' => 'checkbox',
+      '#title' => t('Automatic styling'),
       '#required' => FALSE,
       '#default_value' => theme_get_setting('ebi_framework_style'),
-      '#description' => t('If desired, specify the full URL or relative URL to a custom colour palette (add link on how to make), leave blank to use the default.'),
+      '#description' => t('By default we use EMBL-EBI colours and assign a pallette by path, such as /research /services, etc. To disable, uncheck this. You can then add custom CSS under "Styles and Scripts".'),
     );
 
     // Group the rest of the settings in a container to be able to quickly hide
@@ -261,7 +259,63 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
     );
 
     /*
-     * Misc Settings.
+     * CSS by page Settings.
+     */
+    $form['ebi_framework']['styles_scripts']['css_by_page'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('CSS by page'),
+      '#description' => t('You can load custom CSS files on specific pages'),
+      '#collapsible' => TRUE,
+    );
+
+    // Allow up to 10 custom rules
+    for ($i=0; $i < 10; $i++) { 
+      $form['ebi_framework']['styles_scripts']['css_by_page'][$i] = array(
+        '#type' => 'fieldset',
+        '#title' => t('CSS rule '.($i+1)),
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+      );
+
+      $targetFile = 'ebi_framework_css_rules_file_'.$i;
+      $targetRuleType = 'ebi_framework_css_rules_rule_type_'.$i;
+      $targetCSSConditions = 'ebi_framework_css_rules_conditions_'.$i;
+
+      $form['ebi_framework']['styles_scripts']['css_by_page'][$i][$targetFile] = array(
+        '#type' => 'textfield',
+        '#title' => t('CSS path '.($i+1)),
+        '#size' => 40, 
+        '#maxlength' => 300, 
+        '#default_value' => theme_get_setting($targetFile),
+        '#description' => t('The location of the CSS file you want to load'),
+      );
+
+      $form['ebi_framework']['styles_scripts']['css_by_page'][$i][$targetRuleType] = array(
+        '#type' => 'radios',
+        '#title' => t('Add the CSS on specific pages'),
+        '#options' => array(
+          CSS_INJECTOR_PAGES_NOTLISTED => t('Add on every page except the listed pages.'),
+          CSS_INJECTOR_PAGES_LISTED => t('Add on only the listed pages.')
+        ),
+        '#default_value' => theme_get_setting($targetRuleType),
+      );
+
+      $form['ebi_framework']['styles_scripts']['css_by_page'][$i][$targetCSSConditions] = array(
+        '#type' => 'textarea',
+        '#title' => t('Pages'),
+        '#rows' => 2,
+        '#default_value' => theme_get_setting($targetCSSConditions),
+        '#description' => t("Enter one page per line as Drupal paths. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page.", array('%blog' => 'blog', '%blog-wildcard' => 'blog/*', '%front' => '<front>')),
+      );
+
+      if (!theme_get_setting($targetFile)) {
+        // end after adding one new row
+        break;
+      }
+    }
+
+    /*
+     * Breadcrumb Settings.
      */
     $form['ebi_framework']['breadcrumb'] = array(
       '#type' => 'fieldset',

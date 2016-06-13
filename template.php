@@ -413,6 +413,26 @@ function ebi_framework_preprocess_field(&$variables) {
   }
 }
 
+function ebi_framework_injector_evaluate_css_rule($css_rule,$css_conditions) {
+  // Match path if necessary.
+  if (strlen($css_conditions) > 0) {
+    $path = drupal_get_path_alias($_GET['q']);
+    // Compare with the internal and path alias (if any).
+    $page_match = drupal_match_path($path, $css_conditions);
+    if ($path != $_GET['q']) {
+      $page_match = $page_match || drupal_match_path($_GET['q'], $css_conditions);
+    }
+    if ($css_rule === '0') {
+      // we want an inverse mathc
+      $page_match = !$page_match;
+    }
+  } else {
+    $page_match = TRUE;
+  }
+  return $page_match;
+}
+
+
 /**
  * Implements template_preprocess_html().
  *
@@ -428,9 +448,7 @@ function ebi_framework_preprocess_html(&$variables) {
   drupal_add_css('https://ebiwd.github.io/EBI-Framework/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
   drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/ebi-global.css', array('type' => 'external'));
   drupal_add_css('https://ebiwd.github.io/EBI-Framework/fonts/fonts.css', array('type' => 'external'));
-  if (strlen(theme_get_setting('ebi_framework_style')) > 0) {
-    drupal_add_css(theme_get_setting('ebi_framework_style'), array('type' => 'external'));
-  } else {
+  if (theme_get_setting('ebi_framework_style') === 1) {
     // autodetect the appropriate theme by the url, /research /services, etc.
     $url_parts = explode('/', drupal_get_path_alias());
     switch($url_parts[0]) {
@@ -467,6 +485,24 @@ function ebi_framework_preprocess_html(&$variables) {
   drupal_add_js('https://ebiwd.github.io/EBI-Framework/libraries/foundation-6/js/foundation.js', array('type' => 'external', 'scope' => 'footer'));
   drupal_add_js('https://ebiwd.github.io/EBI-Framework/js/foundationExtendEBI.js', array('type' => 'external', 'scope' => 'footer'));
 
+  // Add any CSS files requested in the theme config
+  for ($i=0; $i < 10; $i++) { 
+    $targetFile = 'ebi_framework_css_rules_file_'.$i;
+    $targetRuleType = 'ebi_framework_css_rules_rule_type_'.$i;
+    $targetCSSConditions = 'ebi_framework_css_rules_conditions_'.$i;
+
+    if (theme_get_setting($targetFile)) {
+      if (ebi_framework_injector_evaluate_css_rule(theme_get_setting($targetRuleType),theme_get_setting($targetCSSConditions))) {
+        // external file?
+        if ( (substr(theme_get_setting($targetFile), 0, 7) === "http://") || (substr(theme_get_setting($targetFile), 0, 8) === "https://") ) {
+          drupal_add_css(theme_get_setting($targetFile), array('type' => 'external'));
+        } else {
+          drupal_add_css(theme_get_setting($targetFile), array('type' => 'file','group' => CSS_THEME));
+        }
+      }
+    }
+  }
+ 
   // Clean up the lang attributes.
   $variables['html_attributes'] = 'lang="' . $language->language . '" dir="' . $language->dir . '"';
 
@@ -1711,3 +1747,4 @@ function ebicompliance_get_subpath() {
 function ebicompliance_get_host() {
   return $_SERVER['SERVER_ADDR'];
 }
+
