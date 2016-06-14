@@ -818,7 +818,7 @@ function ebi_framework_preprocess_page(&$variables) {
       'links' => $variables['main_menu'],
       'attributes' => array(
         'id' => 'main-menu-links',
-        'class' => array('dropdown', 'menu', 'float-left'),
+        'class' => array('menu'),
       ),
       'heading' => array(
         'text' => t('Main menu'),
@@ -835,7 +835,8 @@ function ebi_framework_preprocess_page(&$variables) {
       'links' => $variables['secondary_menu'],
       'attributes' => array(
         'id' => 'secondary-menu-links',
-        'class' => array('menu'),
+        'data-dropdown-menu' => 'true',
+        'class' => array('dropdown', 'menu', 'float-left'),
       ),
       'heading' => array(
         'text' => t('Secondary menu'),
@@ -1747,4 +1748,3 @@ function ebicompliance_get_subpath() {
 function ebicompliance_get_host() {
   return $_SERVER['SERVER_ADDR'];
 }
-
