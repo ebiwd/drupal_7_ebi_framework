@@ -29,12 +29,18 @@ function ebi_framework_form_alter(&$form, &$form_state, $form_id) {
 
   // Sexy panels buttons
   if (!empty($form['buttons'])) {
+    $form['buttons']['submit']['#attributes']['class'] []= 'primary'; 
+    $form['buttons']['submit']['#attributes']['class'] []= 'button'; 
+    $form['buttons']['cancel']['#attributes']['class'] []= 'secondary'; 
+    $form['buttons']['cancel']['#attributes']['class'] []= 'button'; 
     $form['buttons']['return']['#attributes']['class'] []= 'primary';
     $form['buttons']['return']['#attributes']['class'] []= 'button';
     $form['buttons']['save']['#attributes']['class'] []= 'secondary';
     $form['buttons']['save']['#attributes']['class'] []= 'button';
     $form['buttons']['preview']['#attributes']['class'] []= 'secondary';
     $form['buttons']['preview']['#attributes']['class'] []= 'button';
+    $form['preview']['button']['#attributes']['class'] []= 'primary';
+    $form['preview']['button']['#attributes']['class'] []= 'button';
   }
 
   // Sexy submit buttons
