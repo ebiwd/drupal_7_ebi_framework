@@ -16,7 +16,7 @@ Do not edit this theme directly, but create a Drupal sub theme: https://www.drup
 MODULES
 -------
 - To use the Foundation JS, you'll need jQuery Update
-- For responsive blocks, install block_class, no need to modifyl block.tpl.php
+- For responsive blocks, install the block_class module (no need to modifyl block.tpl.php) and add your CSS grid classes (medium-4, small-10, etc.) in the block admin page
 
 
 TINYMCE
