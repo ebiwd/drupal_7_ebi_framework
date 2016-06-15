@@ -853,7 +853,7 @@ function ebi_framework_preprocess_page(&$variables) {
   $variables['alt_user_menu'] = theme('links', array(
     'links' => menu_navigation_links('user-menu'),
     'attributes' => array(
-      'id' => 'secondary-menu-links',
+      'id' => 'secondary-menu-user-links',
       'class' => array('float-right','menu'),
     ),
     'heading' => array(
