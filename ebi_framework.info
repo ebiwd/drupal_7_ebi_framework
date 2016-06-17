@@ -50,6 +50,7 @@ regions[footer]              = Footer
 
 ; Panel Layouts
 plugins[panels][layouts] = layouts
+plugins[panels][styles] = panels_styles
 
 ; Theme settings:
 
