@@ -445,45 +445,49 @@ function ebi_framework_preprocess_html(&$variables) {
   // TODO: put this on a real CDN, with version folders, ala:
   // https://www.ebi.ac.uk/EBI-Framework/v1.1/...
   // TODO: make use of user specified framework version theme_get_setting('ebi_framework_version')
-  drupal_add_css('https://ebiwd.github.io/EBI-Framework/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
-  drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/ebi-global.css', array('type' => 'external'));
-  drupal_add_css('https://ebiwd.github.io/EBI-Framework/fonts/fonts.css', array('type' => 'external'));
+
+  $framework_version_to_use = theme_get_setting('ebi_framework_version'); //1.1, etc
+  $framework_location = 'https://wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/' . 'v' . $framework_version_to_use; // todo: this should be configurable by the UI
+
+  drupal_add_css($framework_location . '/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
+  drupal_add_css($framework_location . '/css/ebi-global.css', array('type' => 'external'));
+  drupal_add_css($framework_location . '/fonts/fonts.css', array('type' => 'external'));
   if (theme_get_setting('ebi_framework_style') === 1) {
     // autodetect the appropriate theme by the url, /research /services, etc.
     $url_parts = explode('/', drupal_get_path_alias());
     switch($url_parts[0]) {
       case 'services':
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-services-about.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-ebi-services-about.css', array('type' => 'external'));
         break;
       case 'research':
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-research.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-ebi-research.css', array('type' => 'external'));
         break;
       case 'training':
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-training.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-ebi-training.css', array('type' => 'external'));
         break;
       case 'industry':
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-industry.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-ebi-industry.css', array('type' => 'external'));
         break;
       case 'about':
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-ebi-services-about.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-ebi-services-about.css', array('type' => 'external'));
         break;
       case 'pdbe':
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-pdbe-green.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-pdbe-green.css', array('type' => 'external'));
         break;
       default:
-        drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/theme-embl-petrol.css', array('type' => 'external'));
+        drupal_add_css($framework_location . '/css/theme-embl-petrol.css', array('type' => 'external'));
     };
   }
-  drupal_add_css('https://ebiwd.github.io/EBI-Framework/css/ebi-global-drupal.css', array('type' => 'external'));
+  drupal_add_css($framework_location . '/css/ebi-global-drupal.css', array('type' => 'external'));
 
-  drupal_add_js('https://ebiwd.github.io/EBI-Framework/libraries/modernizr/modernizr.custom.49274.js', array('type' => 'external', 'scope' => 'header'));
+  drupal_add_js($framework_location . '/libraries/modernizr/modernizr.custom.49274.js', array('type' => 'external', 'scope' => 'header'));
 
-  drupal_add_js('https://ebiwd.github.io/EBI-Framework/js/cookiebanner.js', array('type' => 'external', 'scope' => 'footer'));
-  drupal_add_js('https://ebiwd.github.io/EBI-Framework/js/foot.js', array('type' => 'external', 'scope' => 'footer'));
-  drupal_add_js('https://ebiwd.github.io/EBI-Framework/js/script.js', array('type' => 'external', 'scope' => 'footer'));
-  // drupal_add_js('https://ebiwd.github.io/EBI-Framework/js/fontpresentation.js', array('type' => 'external', 'scope' => 'footer'));
-  drupal_add_js('https://ebiwd.github.io/EBI-Framework/libraries/foundation-6/js/foundation.js', array('type' => 'external', 'scope' => 'footer'));
-  drupal_add_js('https://ebiwd.github.io/EBI-Framework/js/foundationExtendEBI.js', array('type' => 'external', 'scope' => 'footer'));
+  drupal_add_js($framework_location . '/js/cookiebanner.js', array('type' => 'external', 'scope' => 'footer'));
+  drupal_add_js($framework_location . '/js/foot.js', array('type' => 'external', 'scope' => 'footer'));
+  drupal_add_js($framework_location . '/js/script.js', array('type' => 'external', 'scope' => 'footer'));
+  // drupal_add_js($framework_location . '/js/fontpresentation.js', array('type' => 'external', 'scope' => 'footer'));
+  drupal_add_js($framework_location . '/libraries/foundation-6/js/foundation.js', array('type' => 'external', 'scope' => 'footer'));
+  drupal_add_js($framework_location . '/js/foundationExtendEBI.js', array('type' => 'external', 'scope' => 'footer'));
 
   // Add any CSS files requested in the theme config
   for ($i=0; $i < 10; $i++) { 
@@ -805,7 +809,7 @@ function ebi_framework_preprocess_page(&$variables) {
   // Alternative header.
   // This is what will show up if the top bar is disabled or enabled only for
   // mobile.
-  if ($variables['alt_header'] = ($variables['top_bar'] != 1)) {
+  if ($variables['alt_header'] == ($variables['top_bar'] != 1)) {
     // Hide alt header on mobile if using top bar in mobile.
     $variables['alt_header_classes'] = $variables['top_bar'] == 2 ? ' hide-for-small' : '';
   }
