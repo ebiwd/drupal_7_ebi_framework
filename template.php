@@ -548,19 +548,19 @@ function ebi_framework_preprocess_html(&$variables) {
   // add user roles to body class
   global $user;
   foreach ($user->roles as $role) {
-    $variables['classes_array'][] = ebicompliance_id_safe('role-' . $role);
+    $variables['classes_array'][] = ebi_framework_id_safe('role-' . $role);
   }
 
   // add user id to body class
   global $user;
-  $variables['classes_array'][] = ebicompliance_id_safe('user-' . $user->uid);
+  $variables['classes_array'][] = ebi_framework_id_safe('user-' . $user->uid);
 
   // default level (1 = corporate site, 2 = service)
   $level = $variables['is_front'] ? 1 : 2; // assume front page is corporate until we test for subsites and subdomains later
 
   $url = drupal_get_path_alias();
 
-  $variables['classes_array'][] = ebicompliance_id_safe('page-' . $url);
+  $variables['classes_array'][] = ebi_framework_id_safe('page-' . $url);
   $url_parts = explode('/', $url);
   switch($url_parts[0]) {
     case 'services':
@@ -574,18 +574,18 @@ function ebi_framework_preprocess_html(&$variables) {
   // add section/subsection to body classes
   if ($url_parts[0] != 'node') {
     if (isset($url_parts[0])) {
-      $variables['classes_array'][] = ebicompliance_id_safe('section-' . $url_parts[0]);
+      $variables['classes_array'][] = ebi_framework_id_safe('section-' . $url_parts[0]);
       if (isset($url_parts[1])) {
-        $variables['classes_array'][] = ebicompliance_id_safe('subsection-' . $url_parts[1]);
+        $variables['classes_array'][] = ebi_framework_id_safe('subsection-' . $url_parts[1]);
       }
       else {
-        $variables['classes_array'][] = ebicompliance_id_safe('subsection-overview');
+        $variables['classes_array'][] = ebi_framework_id_safe('subsection-overview');
       }
     }
   }
 
   // add subdomain indictator for ebi domains
-  switch ($subdomain = ebicompliance_get_subdomain()) {
+  switch ($subdomain = ebi_framework_get_subdomain()) {
     // level 1 subdomains
     // none
     // level 2 subdomains
@@ -593,87 +593,87 @@ function ebi_framework_preprocess_html(&$variables) {
     case 'staff': // legacy
     case 'content':
     case 'tsc':
-      $variables['classes_array'][] = ebicompliance_id_safe('subdomain-' . $subdomain);
+      $variables['classes_array'][] = ebi_framework_id_safe('subdomain-' . $subdomain);
       $level = 2;
       break;
     default:
-      $variables['classes_array'][] = ebicompliance_id_safe('subdomain-none');
+      $variables['classes_array'][] = ebi_framework_id_safe('subdomain-none');
       break;
   }
 
   // add indictator for ebi subsite: e.g. ebi.ac.uk/rdf
-  switch ($subsite = ebicompliance_get_subpath()) {
+  switch ($subsite = ebi_framework_get_subpath()) {
     // level 1 subsites
     // none
     // level 2 subsites
     case 'rdf':
     case 'pdbe':
     case 'ega':
-      $variables['classes_array'][] = ebicompliance_id_safe('subsite-' . $subsite);
+      $variables['classes_array'][] = ebi_framework_id_safe('subsite-' . $subsite);
       $level = 2;
       break;
     default:
-      $variables['classes_array'][] = ebicompliance_id_safe('subsite-none');
+      $variables['classes_array'][] = ebi_framework_id_safe('subsite-none');
       break;
   }
 
   // add level
-  $variables['classes_array'][] = ebicompliance_id_safe('level' . $level);
+  $variables['classes_array'][] = ebi_framework_id_safe('level' . $level);
 
-  $host = explode('.', ebicompliance_get_host());
+  $host = explode('.', ebi_framework_get_host());
 
   switch ("$host[0].$host[1].$host[2]") {
     case '10.3.0':
-      $variables['classes_array'][] = ebicompliance_id_safe('datacentre-hx');
+      $variables['classes_array'][] = ebi_framework_id_safe('datacentre-hx');
       switch ($host[3] & 1) { // bitwise and last digit of ip address
         case 0:
-          $variables['classes_array'][] = ebicompliance_id_safe('environment-dev');
+          $variables['classes_array'][] = ebi_framework_id_safe('environment-dev');
           break;
         default:
-          $variables['classes_array'][] = ebicompliance_id_safe('environment-stage');
+          $variables['classes_array'][] = ebi_framework_id_safe('environment-stage');
           break;
       }
       break;
 
     case '10.3.2':
-      $variables['classes_array'][] = ebicompliance_id_safe('datacentre-ebi');
+      $variables['classes_array'][] = ebi_framework_id_safe('datacentre-ebi');
       switch ($host[3] & 3) { // bitwise and last 2 digits of ip address
         case 0:
-          $variables['classes_array'][] = ebicompliance_id_safe('environment-dev');
+          $variables['classes_array'][] = ebi_framework_id_safe('environment-dev');
           break;
         case 1:
-          $variables['classes_array'][] = ebicompliance_id_safe('environment-stage');
+          $variables['classes_array'][] = ebi_framework_id_safe('environment-stage');
           break;
         default:
-          $variables['classes_array'][] = ebicompliance_id_safe('environment-prod');
+          $variables['classes_array'][] = ebi_framework_id_safe('environment-prod');
           break;
       }
       break;
 
     case '10.49.1':
-      $variables['classes_array'][] = ebicompliance_id_safe('datacentre-pg');
-      $variables['classes_array'][] = ebicompliance_id_safe('environment-prod');
+      $variables['classes_array'][] = ebi_framework_id_safe('datacentre-pg');
+      $variables['classes_array'][] = ebi_framework_id_safe('environment-prod');
       break;
 
     case '10.39.1':
-      $variables['classes_array'][] = ebicompliance_id_safe('datacentre-oy');
-      $variables['classes_array'][] = ebicompliance_id_safe('environment-prod');
+      $variables['classes_array'][] = ebi_framework_id_safe('datacentre-oy');
+      $variables['classes_array'][] = ebi_framework_id_safe('environment-prod');
       break;
 
     default:
-      $variables['classes_array'][] = ebicompliance_id_safe('datacentre-none');
+      $variables['classes_array'][] = ebi_framework_id_safe('datacentre-none');
       // try to find dev/stage/prod in domain name
       if (strpos($_SERVER['HTTP_HOST'], 'dev') !== FALSE) {
-        $variables['classes_array'][] = ebicompliance_id_safe('environment-dev');
+        $variables['classes_array'][] = ebi_framework_id_safe('environment-dev');
       }
       elseif (strpos($_SERVER['HTTP_HOST'], 'stage') !== FALSE) {
-        $variables['classes_array'][] = ebicompliance_id_safe('environment-stage');
+        $variables['classes_array'][] = ebi_framework_id_safe('environment-stage');
       }
       elseif (strpos($_SERVER['HTTP_HOST'], 'prod') !== FALSE) {
-        $variables['classes_array'][] = ebicompliance_id_safe('environment-prod');
+        $variables['classes_array'][] = ebi_framework_id_safe('environment-prod');
       }
       else {
-        $variables['classes_array'][] = ebicompliance_id_safe('environment-none');
+        $variables['classes_array'][] = ebi_framework_id_safe('environment-none');
       }
       break;
   }
@@ -1666,7 +1666,7 @@ function ebi_framework_links__split_button($variables) {
  * @return
  *  The converted string
  */
-function ebicompliance_id_safe($string) {
+function ebi_framework_id_safe($string) {
   // Replace with dashes anything that isn't A-Z, numbers, dashes, or underscores.
   $string = strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
   // If the first character is not a-z, add 'n' in front.
@@ -1682,11 +1682,11 @@ function ebicompliance_id_safe($string) {
  * the active trail will be based on the *if($link['title']* value
  * add a case for your sub- domain/site
  */
-function ebicompliance_set_subdomain_trail($link,$variables) {
+function ebi_framework_set_subdomain_trail($link,$variables) {
   $class = '';
 
   // (sub)domain
-  switch(ebicompliance_get_subdomain()){
+  switch(ebi_framework_get_subdomain()){
     case 'intranet':
       if($variables['attributes']['id'] == 'global_nav'){
       if($link['title'] == 'About us' || $link['title'] == 'About') {
@@ -1704,7 +1704,7 @@ function ebicompliance_set_subdomain_trail($link,$variables) {
   }
 
   // (sub)site
-  switch(ebicompliance_get_subpath()){
+  switch(ebi_framework_get_subpath()){
     case 'rdf':
     case 'pdbe':
       if($variables['attributes']['id'] == 'global_nav'){
@@ -1722,7 +1722,7 @@ function ebicompliance_set_subdomain_trail($link,$variables) {
 /**
  * get (sub)domain
  */
-function ebicompliance_get_subdomain() {
+function ebi_framework_get_subdomain() {
   $domain = $_SERVER['HTTP_HOST'];
   $domain = str_replace('.ebi.ac.uk', '', $domain);
   $domain_parts = explode('.', $domain);
@@ -1739,7 +1739,7 @@ function ebicompliance_get_subdomain() {
 /**
  * get (base of sub)path under ebi.ac.uk
  */
-function ebicompliance_get_subpath() {
+function ebi_framework_get_subpath() {
   global $base_path;
   $subpath = str_replace("/", "", $base_path);
 
@@ -1749,6 +1749,6 @@ function ebicompliance_get_subpath() {
 /**
  * get ip address of host
  */
-function ebicompliance_get_host() {
+function ebi_framework_get_host() {
   return $_SERVER['SERVER_ADDR'];
 }

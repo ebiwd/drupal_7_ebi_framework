@@ -13,7 +13,7 @@
 
 
 // WE MIGHT NEED THIS, but let's not assume...
-  function ebicompliance_tidy($buffer, $is_admin, $is_prod) {
+  function ebi_framework_tidy($buffer, $is_admin, $is_prod) {
     $local_server = str_replace('.', '\.', $_SERVER['HTTP_HOST']);
     // remove http protcol from: from www.ebi links
 //    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])https?:(//www\.ebi\.ac\.uk)#sm', '$1=$2$3', $buffer); 
@@ -90,7 +90,7 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print preg_replace('#https?:#Usm', '', $styles); ?>
-  <?php print (ebicompliance_tidy($scripts, $is_admin, $is_prod)); ?>
+  <?php print (ebi_framework_tidy($scripts, $is_admin, $is_prod)); ?>
 
   <!-- If you have custom icon, replace these as appropriate.
        You can generate them at realfavicongenerator.net -->
