@@ -14,6 +14,20 @@ $plugin = array(
   'category' => t('ebi_framework'),
 );
 
+function background_colors() {
+  return array(
+      '' => t('- Default -'),
+      'ebi-background' => t('EBI Petrol background'),
+      'services-background' => t('Services background'),
+      'research-background' => t('Research background'),
+      'training-background' => t('Training background'),
+      'industry-background' => t('Industry background'),
+      'elixir-background' => t('ELIXIR background'),
+      'white-background' => t('White background'),
+      'secondary-background' => t('Secondary background'),
+    );
+}
+
 /**
  * Renders the pane content.
  */
@@ -49,17 +63,7 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
     '#type' => 'select',
     '#title' => t('Background color'),
     '#default_value' => (isset($style_settings['color-background'])) ? $style_settings['color-background'] : FALSE,
-    '#options' => array(
-      '' => t('- None -'),
-      'ebi-background' => t('EBI Petrol background'),
-      'services-background' => t('Services background'),
-      'research-background' => t('Research background'),
-      'training-background' => t('Training background'),
-      'industry-background' => t('Industry background'),
-      'elixir-background' => t('ELIXIR background'),
-      'white-background' => t('White background'),
-      'secondary-background' => t('Secondary background'),
-    ),
+    '#options' => background_colors(),
   );
 
   $form['callout-box'] = array(
@@ -74,6 +78,26 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
     '#description' => t('Show as a sidebar-style promotional image. You only need to add an image and, optionally, link it. The pane title will be added as text.'),
     '#default_value' => (isset($style_settings['promo-image'])) ? $style_settings['promo-image'] : FALSE,
   );
+
+  $form['title-label'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Show title as a label'),
+    '#description' => t('Show this panel\'s title as a label.'),
+  );
+
+  $form['title-label']['enabled'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enabled'),
+    '#default_value' => (isset($style_settings['title-label']['enabled'])) ? $style_settings['title-label']['enabled'] : FALSE,
+  );
+
+  $form['title-label']['color-background'] = array(
+    '#type' => 'select',
+    '#title' => t('Background color'),
+    '#default_value' => (isset($style_settings['color-background'])) ? $style_settings['color-background'] : FALSE,
+    '#options' => background_colors(),
+  );
+
 
   $form['custom-classes'] = array(
     '#type' => 'textfield',
@@ -120,6 +144,13 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
             $vars['content'] = str_replace('</a>', '<p>'.$vars['title'].'</p></a>', $vars['content']);
           }
 
+          $vars['title'] = '';
+        }
+      }
+
+      if(isset($vars['pane']->style['settings']['title-label']['enabled'])) {
+        if(($vars['pane']->style['settings']['title-label']['enabled']) === 1) {
+          $vars['content'] = '<p class="label ' . $vars['pane']->style['settings']['title-label']['color-background'] . '">' . $vars['title'] . '</p>' . $vars['content'];
           $vars['title'] = '';
         }
       }
