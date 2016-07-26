@@ -37,18 +37,14 @@
                     </form>
                   </div>
                 </li>
-                <!--
                 <li class="float-right show-for-medium embl-selector">
                   <button class="button" type="button" data-toggle="embl-dropdown">Hinxton</button>
-                  <div id="embl-dropdown" class="dropdown-pane" data-dropdown data-options="closeOnClick:true;">
-                    to come.
-                  </div>
-                </li> 
-                -->
-                <!-- Temporary variant while RWD is still in dev. -->
-                <li class="float-right show-for-medium embl-selector">
-                  <a href="//www.ebi.ac.uk" style="display: inline-block; background: no-repeat 4px 50% url('//khawkins98.github.io/EBI-Framework//images/logos/EMBL-EBI/EMBL_EBI_Logo_white.svg'); padding-left: 95px; background-size: 105px; height: 31px;"></a>
                 </li>
+                <!-- The dropdown menu will be programatically added by script.js -->
+                <!-- Temporary variant while RWD is still in dev. -->
+                <!-- <li class="float-right show-for-medium embl-selector">
+                  <a href="//www.ebi.ac.uk" style="display: inline-block; background: no-repeat 4px 50% url('//khawkins98.github.io/EBI-Framework//images/logos/EMBL-EBI/EMBL_EBI_Logo_white.svg'); padding-left: 95px; background-size: 105px; height: 31px;"></a>
+                </li> -->
               </ul>
             </div>
           </nav>
