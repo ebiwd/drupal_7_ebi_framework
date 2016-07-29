@@ -1,5 +1,13 @@
 <?php
 
+/*
+ Todo:
+   add support for:
+   - accordians
+   - slideshows
+   - medium-up-2, et al
+*/
+
 /**
  * @file
  * Definition of the 'columns' panel style.
@@ -91,5 +99,3 @@ function panels_ebi_style_settings_form($style_settings) {
 
   return $form;
 }
-
-
