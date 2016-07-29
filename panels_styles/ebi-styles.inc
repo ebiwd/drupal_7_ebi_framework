@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * @file
@@ -28,6 +28,20 @@ function background_colors() {
     );
 }
 
+function foreground_colors() {
+  return array(
+      '' => t('- Default -'),
+      'ebi-color' => t('EBI Petrol color'),
+      'services-color' => t('Services color'),
+      'research-color' => t('Research color'),
+      'training-color' => t('Training color'),
+      'industry-color' => t('Industry color'),
+      'elixir-color' => t('ELIXIR color'),
+      'white-color' => t('White color'),
+      'secondary-color' => t('Secondary color'),
+    );
+}
+
 /**
  * Renders the pane content.
  */
@@ -46,17 +60,7 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
     '#type' => 'select',
     '#title' => t('Color preset'),
     '#default_value' => (isset($style_settings['color'])) ? $style_settings['color'] : FALSE,
-    '#options' => array(
-      '' => t('- None -'),
-      'ebi-color' => t('EBI Petrol'),
-      'services-color' => t('Services'),
-      'research-color' => t('Research'),
-      'training-color' => t('Training'),
-      'industry-color' => t('Industry'),
-      'elixir-color' => t('ELIXIR'),
-      'white-color' => t('White'),
-      'secondary-color' => t('Secondary'),
-    ),
+    '#options' => foreground_colors(),
   );
 
   $form['color-background'] = array(
@@ -82,20 +86,22 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
   $form['title-label'] = array(
     '#type' => 'fieldset',
     '#title' => t('Show title as a label'),
-    '#description' => t('Show this panel\'s title as a label.'),
+    // '#description' => t('Show this panel\'s title as a label.'),
+    '#collapsible' => TRUE,
+    '#collapsed' => (isset($style_settings['title-label']['enabled'])) ? $style_settings['title-label']['enabled'] : TRUE,
   );
 
   $form['title-label']['enabled'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enabled'),
+    '#title' => t('Show this panel\'s title as a label'),
     '#default_value' => (isset($style_settings['title-label']['enabled'])) ? $style_settings['title-label']['enabled'] : FALSE,
   );
 
-  $form['title-label']['color-background'] = array(
+  $form['title-label']['color'] = array(
     '#type' => 'select',
-    '#title' => t('Background color'),
-    '#default_value' => (isset($style_settings['color-background'])) ? $style_settings['color-background'] : FALSE,
-    '#options' => background_colors(),
+    '#title' => t('Label color'),
+    '#default_value' => (isset($style_settings['title-label']['color'])) ? $style_settings['title-label']['color'] : FALSE,
+    '#options' => foreground_colors(),
   );
 
 
@@ -112,7 +118,7 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
 /**
  * Implements hook_preprocess_panels_pane().
  */
-// TODO: this should be moved into it's own seperate include as we only get one of these functions, 
+// TODO: this should be moved into it's own seperate include as we only get one of these functions,
 // but for active dev it's easier to use here...
 function ebi_framework_preprocess_panels_pane(&$vars) {
 
@@ -158,12 +164,12 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
       if(isset($vars['pane']->style['settings']['custom-classes'])) {
         $classesToAdd = explode(' ', $vars['pane']->style['settings']['custom-classes']);
 
-        for ($i=0; $i < count($classesToAdd); $i++) { 
+        for ($i=0; $i < count($classesToAdd); $i++) {
           $vars['classes_array'][] = $classesToAdd[$i];
         }
       }
 
     }
   }
-  
+
 }
