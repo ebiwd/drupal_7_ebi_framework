@@ -76,6 +76,20 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
     '#default_value' => (isset($style_settings['callout-box'])) ? $style_settings['callout-box'] : FALSE,
   );
 
+  $form['links'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Links'),
+    // '#description' => t('Show this panel\'s title as a label.'),
+    '#collapsible' => TRUE,
+    '#collapsed' => (isset($style_settings['links']['no-underline'])) ? $style_settings['links']['no-underline'] : TRUE,
+  );
+
+  $form['links']['no-underline'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Do not underline links'),
+    '#default_value' => (isset($style_settings['links']['no-underline'])) ? $style_settings['links']['no-underline'] : FALSE,
+  );
+
   $form['promo-image'] = array(
     '#type' => 'checkbox',
     '#title' => t('Promotional image'),
@@ -155,6 +169,13 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
       }
 
       // customise the label
+      if(isset($vars['pane']->style['settings']['links']['no-underline'])) {
+        // if(($vars['pane']->style['settings']['links']['no-underline']) === 1) {
+          $vars['classes_array'][] = 'no-underline';
+        // }
+      }
+
+      // Link underslines
       if(isset($vars['pane']->style['settings']['title-label']['enabled'])) {
         if(($vars['pane']->style['settings']['title-label']['enabled']) === 1) {
           $vars['content'] = '<p class="label ' . $vars['pane']->style['settings']['title-label']['color'] . '">' . $vars['title'] . '</p>' . $vars['content'];
