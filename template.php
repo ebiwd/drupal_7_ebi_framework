@@ -1752,3 +1752,10 @@ function ebi_framework_get_subpath() {
 function ebi_framework_get_host() {
   return $_SERVER['SERVER_ADDR'];
 }
+
+
+function ebi_framework_menu_tree($variables) {  
+  // print_r($variables);
+  $menu_type = str_replace('menu_tree__menu_', '', $variables['theme_hook_original']);  
+  return '<ul class="menu ' . str_replace(array('_', ' '), '-', strtolower($menu_type)) . '-menu">' . $variables['tree'] . '</ul>';
+}

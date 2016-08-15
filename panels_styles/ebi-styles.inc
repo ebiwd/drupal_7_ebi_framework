@@ -118,7 +118,6 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
     '#options' => foreground_colors(),
   );
 
-
   $form['custom-classes'] = array(
     '#type' => 'textfield',
     '#title' => t('Special classes'),
@@ -138,6 +137,9 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
 
   if(isset($vars['pane']->style['style'])) {
     if($vars['pane']->style['style'] === 'ebi-styles') {
+
+  // print_r($vars);
+//  print_r($vars['pane']->subtype);
 
       if(isset($vars['pane']->style['settings']['color'])) {
         $vars['classes_array'][] = $vars['pane']->style['settings']['color'];
