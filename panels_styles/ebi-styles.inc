@@ -177,7 +177,7 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
         // }
       }
 
-      // Link underslines
+      // Link underlines
       if(isset($vars['pane']->style['settings']['title-label']['enabled'])) {
         if(($vars['pane']->style['settings']['title-label']['enabled']) === 1) {
           $vars['content'] = '<p class="label ' . $vars['pane']->style['settings']['title-label']['color'] . '">' . $vars['title'] . '</p>' . $vars['content'];
