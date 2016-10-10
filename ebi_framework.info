@@ -51,8 +51,6 @@ regions[local_nav]           = Local navigation
 ; regions[local_search]        = Local search ; to implement
 regions[local_title]         = Local title
 
-local_nav
-
 ; Panel Layouts
 plugins[panels][layouts] = layouts
 plugins[panels][styles] = panels_styles
