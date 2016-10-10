@@ -47,6 +47,11 @@ regions[footer_secondcolumn] = Footer two
 regions[footer_thirdcolumn]  = Footer three
 regions[footer_fourthcolumn] = Footer four
 regions[footer]              = Footer
+regions[local_nav]           = Local navigation
+; regions[local_search]        = Local search ; to implement
+regions[local_title]         = Local title
+
+local_nav
 
 ; Panel Layouts
 plugins[panels][layouts] = layouts

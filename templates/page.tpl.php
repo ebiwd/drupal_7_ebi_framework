@@ -83,7 +83,11 @@
 
           <!-- local-title -->
           <div class="columns medium-12" id="local-title">
-            <h1><a href="<?php print $variables['local_title_path'] ?>" title="Back to <?php print $variables['local_title']; ?>"><?php print $variables['local_title']; ?></a></h1>
+            <?php if (!empty($page['local_title'])) : ?>
+              <?php print render($page['local_title']); ?>
+            <?php else: ?>          
+              <h1><a href="<?php print $variables['local_title_path'] ?>" title="Back to <?php print $variables['local_title']; ?>"><?php print $variables['local_title']; ?></a></h1>
+            <?php endif; ?>
             <?php if (!empty($page['header'])): ?>
               <!--.l-header-region -->
               <section class="l-header-region row">
@@ -97,7 +101,11 @@
           <!-- local-nav -->
           <?php if ($alt_main_menu): ?>
             <nav id="main-menu" class="navigation" role="navigation">
-              <?php print ($alt_secondary_menu); ?>
+              <?php if (!empty($page['local_nav'])) : ?>
+                <?php print render($page['local_nav']); ?>
+              <?php else: ?>          
+                <?php print ($alt_secondary_menu); ?>
+              <?php endif; ?>
               <?php if ($alt_user_menu): ?>
                   <?php print $alt_user_menu; ?>
               <?php endif; ?>
