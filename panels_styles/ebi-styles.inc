@@ -57,9 +57,29 @@ function spacing_units() {
 /**
  * Renders the pane content.
  */
-function theme_ebi_framework_ebi_styles_style_render_pane($content) {
+function theme_ebi_framework_ebi_styles_style_render_pane(&$vars) {
+  // passing CSS is super tricky with panels, and doing it reliably with the theme cache
+  // This approach is based off the below and has proved the most reliable:
+  // https://www.drupal.org/node/1875172
+
+  // Process any user opptions
+  $customBody = ebi_framework_preprocess_panels_pane($vars);
+
+  // Face out $vars
+  $content = $vars['content'];
+  $pane = $vars['pane'];
+  $display = $vars['display'];
+
   if (!empty($content)) {
-    return theme('panels_pane', $content);
+    // Attach any rednered content
+    $content->css_class = join(' ',$vars['classes_array']);
+    $content->title = $vars['content']->title;
+    $content->content = $vars['content']->content;
+
+    // redner the output -- this is where things would otherwise go wrong with drupal theme caching
+    $output = theme('panels_pane', array('content' => $content, 'pane' => $pane, 'display' => $display));
+
+    return $output;
   }
 }
 
@@ -292,20 +312,19 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
       // }
 
       if(isset($vars['pane']->style['settings']['promo-image'])) {
+
         if(($vars['pane']->style['settings']['promo-image']) === 1) {
+
           $vars['classes_array'][] = 'with-overlay';
 
-          $vars['content'] = strip_tags($vars['content'],'<a><img>'); // only IMG and A tags, please
+          $vars['content']->content = strip_tags($vars['content']->content,'<a><img>'); // only IMG and A tags, please
 
           // if has a link, insert title into that space
-          if (strpos($vars['content'],'</a>') != 0) {
-            $vars['content'] = str_replace('</a>', '<div class="caption"><div class="inner">' . $vars['title'].'</div></div></a>', $vars['content']);
-            // $vars['content'] = str_replace('<a ', '<a class="inner" ', $vars['content']);
+          if (strpos($vars['content']->content,'</a>') != 0) {
+            $vars['content']->content = str_replace('</a>', '<div class="caption"><div class="inner">' . $vars['content']->title.'</div></div></a>', $vars['content']->content);
           }
 
-          // $vars['content'] = '<div class="caption">' . $vars['content'] . '</div>';
-
-          $vars['title'] = '';
+          $vars['content']->title = '';
         }
       }
 
@@ -319,8 +338,8 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
       // Customise the label
       if(isset($vars['pane']->style['settings']['title-label']['enabled'])) {
         if(($vars['pane']->style['settings']['title-label']['enabled']) === 1) {
-          $vars['content'] = '<p class="label ' . $vars['pane']->style['settings']['title-label']['color'] . '">' . $vars['title'] . '</p>' . $vars['content'];
-          $vars['title'] = '';
+          $vars['content']->content = '<p class="label ' . $vars['pane']->style['settings']['title-label']['color'] . '">' . $vars['content']->title . '</p>' . $vars['content']->content;
+          $vars['content']->title = '';
         }
       }
 
