@@ -233,16 +233,10 @@ function theme_ebi_framework_ebi_styles_settings_form($style_settings) {
 /**
  * Implements hook_preprocess_panels_pane().
  */
-// TODO: this should be moved into it's own seperate include as we only get one of these functions,
-// but for active dev it's easier to use here...
+// Note: this should ideally be in it's own seperate include as we only get one of these functions.
 function ebi_framework_preprocess_panels_pane(&$vars) {
-
   if(isset($vars['pane']->style['style'])) {
     if($vars['pane']->style['style'] === 'ebi-styles') {
-
-//  debug:
-//  print_r($vars);
-//  print_r($vars['pane']->subtype);
 
       if(isset($vars['pane']->style['settings']['color'])) {
         $vars['classes_array'][] = $vars['pane']->style['settings']['color'];
@@ -312,7 +306,6 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
       // }
 
       if(isset($vars['pane']->style['settings']['promo-image'])) {
-
         if(($vars['pane']->style['settings']['promo-image']) === 1) {
 
           $vars['classes_array'][] = 'with-overlay';
@@ -321,7 +314,7 @@ function ebi_framework_preprocess_panels_pane(&$vars) {
 
           // if has a link, insert title into that space
           if (strpos($vars['content']->content,'</a>') != 0) {
-            $vars['content']->content = str_replace('</a>', '<div class="caption"><div class="inner">' . $vars['content']->title.'</div></div></a>', $vars['content']->content);
+            $vars['content']->content = str_replace('</a>', '<div class="caption"><div class="inner">' . $vars['content']->title . '</div></div></a>', $vars['content']->content);
           }
 
           $vars['content']->title = '';

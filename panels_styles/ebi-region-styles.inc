@@ -17,7 +17,7 @@
 $plugin = array(
   'title' => t('EBI Region styles'),
   'description' => t('The default panel rendering style; displays each pane with a separator.'),
-  'render region' => 'panels_ebi_style_render_region',
+  'render region' => 'ebi_framework_panels_ebi_style_render_region',
   'settings form' => 'panels_ebi_style_settings_form',
 );
 
@@ -132,7 +132,7 @@ function panels_ebi_style_settings_form($style_settings) {
  *
  * @ingroup themeable
  */
-function ebi_framework_panels_ebi_style_render_region($vars) {
+function theme_ebi_framework_panels_ebi_style_render_region($vars) {
   // $display = $vars['display'];
   // $region_id = $vars['region_id'];
   $panes = $vars['panes'];
@@ -140,7 +140,6 @@ function ebi_framework_panels_ebi_style_render_region($vars) {
   $output = '';
   $renderedClasses = 'panel-separator ';
   $classesColumns = '';
-
 
   // Site editor defined options
   // to do: these all get output whether or not individually set, no tech issue but messy
