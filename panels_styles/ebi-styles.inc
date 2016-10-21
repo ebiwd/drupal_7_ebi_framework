@@ -63,7 +63,7 @@ function theme_ebi_framework_ebi_styles_style_render_pane(&$vars) {
   // https://www.drupal.org/node/1875172
 
   // Process any user opptions
-  $customBody = ebi_framework_preprocess_panels_pane($vars);
+  ebi_framework_preprocess_panels_pane($vars);
 
   // Face out $vars
   $content = $vars['content'];
