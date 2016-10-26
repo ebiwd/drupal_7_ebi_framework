@@ -17,16 +17,16 @@
 ?>
 
 <div class="row" <?php !empty($css_id) ? print 'id="' . $css_id . '"' : ''; ?>>
-  <div class="medium-3 columns">
+  <div class="medium-3 columns analytics-content-left">
     <?php print $content['left']; ?>
   </div>
-  <div class="medium-3 columns">
+  <div class="medium-3 columns analytics-content-main">
     <?php print $content['middle_left']; ?>
   </div>
-  <div class="medium-3 columns">
+  <div class="medium-3 columns analytics-content-main">
     <?php print $content['middle_right']; ?>
   </div>
-  <div class="medium-3 columns">
+  <div class="medium-3 columns analytics-content-right">
     <?php print $content['right']; ?>
   </div>
 </div> <!-- panels row -->

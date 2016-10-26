@@ -20,14 +20,14 @@
 <?php !empty($css_id) ? print '<div id="' . $css_id . '">' : ''; ?>
   <?php if ($content['top']): ?>
     <div class="row">
-      <div class="small-12 columns">
+      <div class="small-12 columns analytics-content-intro">
 			  <?php print $content['top']; ?>
       </div>
 		</div>
   <?php endif ?>
 
   <div class="row">
-    <div class="small-12 medium-8 columns">
+    <div class="small-12 medium-8 columns analytics-content-main">
       <div class="row">
         <div class="small-12 columns">
           <?php print $content['center']; ?>
@@ -50,14 +50,14 @@
         </div>
       </div>
     </div>
-    <div class="small-12 medium-4 columns">
+    <div class="small-12 medium-4 columns analytics-content-sidebar">
       <?php print $content['right']; ?>
     </div>
   </div>
 
   <?php if ($content['bottom']): ?>
     <div class="row">
-      <div class="small-12 columns">
+      <div class="small-12 columns analytics-content-footer">
 			  <?php print $content['bottom']; ?>
       </div>
     </div>

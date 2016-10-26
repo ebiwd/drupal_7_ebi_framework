@@ -13,7 +13,7 @@
  */
 ?>
 <div class="row" <?php !empty($css_id) ? print 'id="' . $css_id . '"' : ''; ?>>
-  <div class="medium-12 columns">
+  <div class="medium-12 columns analytics-content-main">
     <?php print $content['middle']; ?>
   </div>
 </div>

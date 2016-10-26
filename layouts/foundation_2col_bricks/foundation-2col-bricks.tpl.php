@@ -24,33 +24,33 @@
 ?>
 <?php !empty($css_id) ? print '<div id="' . $css_id . '">' : ''; ?>
   <div class="row">
-    <div class="medium-12 columns"><?php print $content['top']; ?></div>
+    <div class="medium-12 columns analytics-content-intro"><?php print $content['top']; ?></div>
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="medium-6 columns analytics-content-left">
       <?php print $content['above_left']; ?>
     </div>
-    <div class="medium-6 columns">
+    <div class="medium-6 columns analytics-content-right">
       <?php print $content['above_right']; ?>
     </div>
   </div>
 
   <div class="row">
-    <div class="medium-12 columns"><?php print $content['middle']; ?></div>
+    <div class="medium-12 columns analytics-content-main"><?php print $content['middle']; ?></div>
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="medium-6 columns analytics-content-left">
       <?php print $content['below_left']; ?>
     </div>
 
-    <div class="medium-6 columns">
+    <div class="medium-6 columns analytics-content-right">
       <?php print $content['below_right']; ?>
     </div>
   </div>
 
   <div class="row">
-    <div class="medium-12 columns"><?php print $content['bottom']; ?></div>
+    <div class="medium-12 columns analytics-content-footer"><?php print $content['bottom']; ?></div>
   </div>
 <?php !empty($css_id) ? print '</div>' : ''; ?>
