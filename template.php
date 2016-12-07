@@ -983,9 +983,11 @@ function ebi_framework_preprocess_page(&$variables) {
     case 'pdbe':
     case 'ega':
       $variables['active_in_global_nav']['services'] = 'active';
+      $variables['active_in_global_nav']['home'] = '';
       break;
     case 'trainingonline':
       $variables['active_in_global_nav']['training'] = 'active';
+      $variables['active_in_global_nav']['home'] = '';
       break;
     default:
       break;
