@@ -612,6 +612,10 @@ function ebi_framework_preprocess_html(&$variables) {
       $variables['classes_array'][] = ebi_framework_id_safe('subsite-' . $subsite);
       $level = 2;
       break;
+    case 'trainingonline':
+      $variables['classes_array'][] = ebi_framework_id_safe('section-' . $subsite);
+      $variables['classes_array'][] = ebi_framework_id_safe('section-training');
+      break;
     default:
       $variables['classes_array'][] = ebi_framework_id_safe('subsite-none');
       break;
@@ -972,6 +976,20 @@ function ebi_framework_preprocess_page(&$variables) {
     default:
       $variables['active_in_global_nav']['home'] = 'active';
   };
+
+  // Or if we're on a subsite, like train online...
+  switch ($subsite = ebi_framework_get_subpath()) {
+    case 'rdf':
+    case 'pdbe':
+    case 'ega':
+      $variables['active_in_global_nav']['services'] = 'active';
+      break;
+    case 'trainingonline':
+      $variables['active_in_global_nav']['training'] = 'active';
+      break;
+    default:
+      break;
+  }
 
   $breadcrumb = drupal_get_breadcrumb();
   if ( (!empty($breadcrumb[1])) && theme_get_setting('ebi_framework_use_second_breadcrumb_in_header') ) {
