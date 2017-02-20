@@ -1,0 +1,38 @@
+.figure-label {
+  clear: both;
+  text-align: center;
+}
+.figure-label * {
+  display:inline;
+}
+.figure-label div {
+  padding-left: 5px;
+}
+.pagination {
+  margin: 0px;
+  padding: 0px;
+}
+.pagination a, .pagination div {
+  display: inline-block;
+}
+.pagination .activeSlide  a { color: #fff; border-bottom: none; }
+body .field-slideshow-slide {
+  width: 100% !important;
+}
+body .field-collection-item-field-slideshow {
+  text-align: center;
+}
+body .field-name-field-text-above-screenshot, .field-name-field-text-below-screenshot  {
+  text-align: left;
+}
+body .field-name-field-screenshot {
+  text-align: center;
+}
+
+.field-name-field-slideshow {
+  padding: 50px 10px 10px;
+  background-color: #e3e3e3;
+  border: 2px solid #c3c3c3;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
