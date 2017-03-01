@@ -18,8 +18,6 @@
     // remove http protcol from: from www.ebi links
 //    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])https?:(//www\.ebi\.ac\.uk)#sm', '$1=$2$3', $buffer); 
 //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)https?:(//www\.ebi\.ac\.uk)#sm', '$1($2$3', $buffer); 
-    // remove protocol and domain from frontier links
-    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])(https?:)?//frontier\.ebi\.ac\.uk/?#sm', '$1=$2/', $buffer); 
 //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)(https?:)?//frontier\.ebi\.ac\.uk/?#sm', '$1($2/', $buffer); 
     // remove http protcol from: from local domain links
     $buffer = preg_replace("#(href|src)\s*=\s*([\"'])https?:(//{$local_server})#sm", '$1=$2$3', $buffer); 
@@ -115,9 +113,9 @@
   <div class="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>
-  <?php print $page_top; ?>
-  <?php print $page; ?>
-  <?php print $page_bottom; ?>
+  <?php print (ebi_framework_tidy($page_top, $is_admin, $is_prod)); ?>
+  <?php print (ebi_framework_tidy($page, $is_admin, $is_prod)); ?>
+  <?php print (ebi_framework_tidy($page_bottom, $is_admin, $is_prod)); ?>
   <?php print _ebi_framework_add_reveals(); ?>
 
   <script>
