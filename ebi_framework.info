@@ -59,7 +59,7 @@ plugins[panels][styles] = panels_styles
 
 ; Top Bar
 settings[ebi_framework_top_bar_enable] = 0
-settings[ebi_framework_version] = '1.1'
+settings[ebi_framework_version] = '1.2'
 settings[ebi_framework_style] = 1
 settings[ebi_framework_top_bar_grid] = 0
 settings[ebi_framework_top_bar_sticky] = 0
@@ -92,7 +92,7 @@ settings[ebi_framework_messages_modal] = 1
 settings[ebi_framework_messages_modal_static] = 0
 settings[ebi_framework_pager_center] = 1
 
-version = "7.x-1.1-dev"
+version = "7.x-1.2-dev"
 core = "7.x"
 project = "ebi_framework"
 
