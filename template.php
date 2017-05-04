@@ -451,7 +451,7 @@ function ebi_framework_preprocess_html(&$variables) {
 
   drupal_add_css($framework_location . '/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
   drupal_add_css($framework_location . '/css/ebi-global.css', array('type' => 'external'));
-  drupal_add_css('https://www.ebi.ac.uk/web_guidelines/EBI-Icon-fonts/v1.1/fonts.css', array('type' => 'external'));
+  drupal_add_css('https://www.ebi.ac.uk/web_guidelines/EBI-Icon-fonts/v1.2/fonts.css', array('type' => 'external'));
   if (theme_get_setting('ebi_framework_style') === 1) {
     // autodetect the appropriate theme by the url, /research /services, etc.
     $url_parts = explode('/', drupal_get_path_alias());
@@ -480,10 +480,6 @@ function ebi_framework_preprocess_html(&$variables) {
   }
   drupal_add_css($framework_location . '/css/ebi-global-drupal.css', array('type' => 'external'));
 
-  drupal_add_js($framework_location . '/libraries/modernizr/modernizr.custom.49274.js', array('type' => 'external', 'scope' => 'header'));
-
-  drupal_add_js($framework_location . '/js/cookiebanner.js', array('type' => 'external', 'scope' => 'footer'));
-  drupal_add_js($framework_location . '/js/foot.js', array('type' => 'external', 'scope' => 'footer'));
   drupal_add_js($framework_location . '/js/script.js', array('type' => 'external', 'scope' => 'footer'));
   // drupal_add_js($framework_location . '/js/fontpresentation.js', array('type' => 'external', 'scope' => 'footer'));
   drupal_add_js($framework_location . '/libraries/foundation-6/js/foundation.js', array('type' => 'external', 'scope' => 'footer'));
