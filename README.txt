@@ -1,6 +1,6 @@
 ABOUT
 ----------------------------------
-This Drupal theme is based of a development version of the Foundation Framework for Drupal 7.
+This Drupal integrates the EBI Visual Framework v1.2.
 
 That theme implementation has been paired down, removing some features that are uneeded for EMBL-EBI sites and has been updated to use Foundation 6.
 
