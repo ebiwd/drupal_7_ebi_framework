@@ -13,30 +13,31 @@
 
 
 // WE MIGHT NEED THIS, but let's not assume...
-  function ebi_framework_tidy($buffer, $is_admin, $is_prod) {
-    $local_server = str_replace('.', '\.', $_SERVER['HTTP_HOST']);
-    // remove http protcol from: from www.ebi links
-//    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])https?:(//www\.ebi\.ac\.uk)#sm', '$1=$2$3', $buffer); 
-//    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)https?:(//www\.ebi\.ac\.uk)#sm', '$1($2$3', $buffer); 
-//    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)(https?:)?//frontier\.ebi\.ac\.uk/?#sm', '$1($2/', $buffer); 
-    // remove http protcol from: from local domain links
-    $buffer = preg_replace("#(href|src)\s*=\s*([\"'])https?:(//{$local_server})#sm", '$1=$2$3', $buffer); 
-//    $buffer = preg_replace("#(url)\s*\(\s*([\"']?)https?:(//{$local_server})#sm", '$1($2$3', $buffer); 
+  if (! function_exists('ebi_framework_tidy')) {
+    function ebi_framework_tidy($buffer, $is_admin, $is_prod) {
+      $local_server = str_replace('.', '\.', $_SERVER['HTTP_HOST']);
+      // remove http protcol from: from www.ebi links
+  //    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])https?:(//www\.ebi\.ac\.uk)#sm', '$1=$2$3', $buffer); 
+  //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)https?:(//www\.ebi\.ac\.uk)#sm', '$1($2$3', $buffer); 
+  //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)(https?:)?//frontier\.ebi\.ac\.uk/?#sm', '$1($2/', $buffer); 
+      // remove http protcol from: from local domain links
+      $buffer = preg_replace("#(href|src)\s*=\s*([\"'])https?:(//{$local_server})#sm", '$1=$2$3', $buffer); 
+  //    $buffer = preg_replace("#(url)\s*\(\s*([\"']?)https?:(//{$local_server})#sm", '$1($2$3', $buffer); 
 
-    if (!$is_prod) {
-      $buffer = str_replace('//www.ebi.ac.uk', '//wwwdev.ebi.ac.uk', $buffer);
+      if (!$is_prod) {
+        $buffer = str_replace('//www.ebi.ac.uk', '//wwwdev.ebi.ac.uk', $buffer);
+      }
+      $buffer = preg_replace('#(local|global)_(nav)#sm', '$1-$2', $buffer);
+      $buffer = preg_replace('#(grid)-(\d+)#sm', '$1_$2', $buffer);
+
+      if (strpos($buffer, 'key-not-found-in-xml') !== FALSE) {
+        $buffer = ''; // clear original content
+        drupal_not_found(); // display not found page
+      }
+
+      return $buffer;
     }
-    $buffer = preg_replace('#(local|global)_(nav)#sm', '$1-$2', $buffer);
-    $buffer = preg_replace('#(grid)-(\d+)#sm', '$1_$2', $buffer);
-
-    if (strpos($buffer, 'key-not-found-in-xml') !== FALSE) {
-      $buffer = ''; // clear original content
-      drupal_not_found(); // display not found page
-    }
-
-    return $buffer;
   }
-
 /**
  * @file
  * Default theme implementation to display the basic html structure of a single
