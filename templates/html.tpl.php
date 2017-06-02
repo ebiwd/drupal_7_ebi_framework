@@ -17,12 +17,12 @@
     function ebi_framework_tidy($buffer, $is_admin, $is_prod) {
       $local_server = str_replace('.', '\.', $_SERVER['HTTP_HOST']);
       // remove http protcol from: from www.ebi links
-  //    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])https?:(//www\.ebi\.ac\.uk)#sm', '$1=$2$3', $buffer); 
-  //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)https?:(//www\.ebi\.ac\.uk)#sm', '$1($2$3', $buffer); 
-  //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)(https?:)?//frontier\.ebi\.ac\.uk/?#sm', '$1($2/', $buffer); 
+  //    $buffer = preg_replace('#(href|src)\s*=\s*(["\'])https?:(//www\.ebi\.ac\.uk)#sm', '$1=$2$3', $buffer);
+  //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)https?:(//www\.ebi\.ac\.uk)#sm', '$1($2$3', $buffer);
+  //    $buffer = preg_replace('#(url)\s*\(\s*(["\']?)(https?:)?//frontier\.ebi\.ac\.uk/?#sm', '$1($2/', $buffer);
       // remove http protcol from: from local domain links
-      $buffer = preg_replace("#(href|src)\s*=\s*([\"'])https?:(//{$local_server})#sm", '$1=$2$3', $buffer); 
-  //    $buffer = preg_replace("#(url)\s*\(\s*([\"']?)https?:(//{$local_server})#sm", '$1($2$3', $buffer); 
+      $buffer = preg_replace("#(href|src)\s*=\s*([\"'])https?:(//{$local_server})#sm", '$1=$2$3', $buffer);
+  //    $buffer = preg_replace("#(url)\s*\(\s*([\"']?)https?:(//{$local_server})#sm", '$1($2$3', $buffer);
 
       if (!$is_prod) {
         $buffer = str_replace('//www.ebi.ac.uk', '//wwwdev.ebi.ac.uk', $buffer);
@@ -93,16 +93,16 @@
 
   <!-- If you have custom icon, replace these as appropriate.
        You can generate them at realfavicongenerator.net -->
-  <link rel="icon" type="image/x-icon" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/favicon.ico" />
-  <link rel="icon" type="image/png" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="192×192" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/android-chrome-192x192.png" /> <!-- Android (192px) -->
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-114x114.png"> <!-- For iPhone 4 Retina display (114px) -->
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-72x72.png"> <!-- For iPad (72px) -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-144x144.png"> <!-- For iPad retinat (144px) -->
-  <link rel="apple-touch-icon-precomposed" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/apple-icon-57x57.png"> <!-- For iPhone (57px) -->
-  <link rel="mask-icon" href="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/safari-pinned-tab.svg" color="#ffffff"> <!-- Safari icon for pinned tab -->
-  <meta name="msapplication-TileColor" content="#2b5797"> <!-- MS Icons -->
-  <meta name="msapplication-TileImage" content="https://ebiwd.github.io/EBI-Framework/images/logos/EMBL-EBI/favicons/mstile-144x144.png">
+  <link rel="icon" type="image/x-icon" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192×192" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/android-chrome-192x192.png" /> <!-- Android (192px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-114x114.png" /> <!-- For iPhone 4 Retina display (114px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-72x72.png" /> <!-- For iPad (72px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-144x144.png" /> <!-- For iPad retinat (144px) -->
+  <link rel="apple-touch-icon-precomposed" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-57x57.png" /> <!-- For iPhone (57px) -->
+  <link rel="mask-icon" href="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/safari-pinned-tab.svg" color="#ffffff" /> <!-- Safari icon for pinned tab -->
+  <meta name="msapplication-TileColor" content="#2b5797" /> <!-- MS Icons -->
+  <meta name="msapplication-TileImage" content="//www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/mstile-144x144.png" />
 
   <!-- <meta name="ebi-localmasthead-color" content="#241a00">  -->
   <!-- <meta name="ebi-localmasthead-image" content="https://ebiwd.github.io/EBI-Framework/images/backgrounds/training-yellow-2.jpg"> -->
@@ -114,6 +114,29 @@
   <div class="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>
+  <header id="masthead-black-bar" class="clearfix masthead-black-bar">
+    <nav class="row">
+      <ul id="global-nav" class="menu">
+        <!-- set active class as appropriate -->
+        <li class="home-mobile"><a href="//www.ebi.ac.uk"></a></li>
+        <li class="home <?php print $variables['active_in_global_nav']['home']; ?>"><a href="//www.ebi.ac.uk">EMBL-EBI</a></li>
+        <li class="services <?php print $variables['active_in_global_nav']['services']; ?>"><a href="//www.ebi.ac.uk/services">Services</a></li>
+        <li class="research <?php print $variables['active_in_global_nav']['research']; ?>"><a href="//www.ebi.ac.uk/research">Research</a></li>
+        <li class="training <?php print $variables['active_in_global_nav']['training']; ?>"><a href="//www.ebi.ac.uk/training">Training</a></li>
+        <li class="about <?php print $variables['active_in_global_nav']['about']; ?>"><a href="//www.ebi.ac.uk/about">About us</a></li>
+        <li class="search">
+          <a href="#" data-toggle="search-global-dropdown"><span class="show-for-small-only">Search</span></a>
+          <div id="search-global-dropdown" class="dropdown-pane" data-dropdown data-options="closeOnClick:true;">
+          <!-- The dropdown menu will be programatically added by script.js -->
+          </div>
+        </li>
+        <li class="float-right show-for-medium embl-selector">
+          <button class="button float-right" type="button" data-toggle="embl-dropdown">Hinxton</button>
+          <!-- The dropdown menu will be programatically added by script.js -->
+        </li>
+      </ul>
+    </nav>
+  </header>
   <?php print (ebi_framework_tidy($page_top, $is_admin, $is_prod)); ?>
   <?php print (ebi_framework_tidy($page, $is_admin, $is_prod)); ?>
   <?php print (ebi_framework_tidy($page_bottom, $is_admin, $is_prod)); ?>
