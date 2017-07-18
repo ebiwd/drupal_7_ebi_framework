@@ -5,6 +5,7 @@
  *
  *
  */
+drupal_add_css(drupal_get_path('theme', 'ebi_framework') . '/css/field_slideshow.css', array('weight' => 100));
 if (!isset($controls_position)) {
   $controls_position = "after";
 }
