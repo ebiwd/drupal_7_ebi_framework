@@ -1,72 +1,72 @@
+<!--.l-header -->
+<div data-sticky-container>
+  <header id="masthead" class="masthead" data-sticky data-sticky-on="large" data-top-anchor="content:top" data-btm-anchor="content:bottom">
+    <div class="masthead-inner row">
+      <?php if ($top_bar): ?>
+        <!--.top-bar -->
+        <?php if ($top_bar_classes): ?>
+          <div class="<?php print $top_bar_classes; ?>">
+        <?php endif; ?>
+        <nav class="top-bar" data-topbar <?php print $top_bar_options; ?>>
+          <ul class="title-area">
+            <li class="name"><h1><?php print $linked_site_name; ?></h1></li>
+            <li class="toggle-topbar menu-icon">
+              <a href="#"><span><?php print $top_bar_menu_text; ?></span></a></li>
+          </ul>
+          <section class="top-bar-section">
+            <?php if ($top_bar_main_menu) : ?>
+              <?php print $top_bar_main_menu; ?>
+            <?php endif; ?>
+            <?php if ($top_bar_secondary_menu) : ?>
+              <?php print $top_bar_secondary_menu; ?>
+            <?php endif; ?>
+          </section>
+        </nav>
+        <?php if ($top_bar_classes): ?>
+          </div>
+        <?php endif; ?>
+        <!--/.top-bar -->
+      <?php endif; ?>
+
+      <!-- local-title -->
+      <div class="columns medium-12" id="local-title">
+        <?php if (!empty($page['local_title'])) : ?>
+          <?php print render($page['local_title']); ?>
+        <?php else: ?>
+          <h1><a href="<?php print $variables['local_title_path'] ?>" title="Back to <?php print $variables['local_title']; ?>"><?php print $variables['local_title']; ?></a></h1>
+        <?php endif; ?>
+        <?php if (!empty($page['header'])): ?>
+          <!--.l-header-region -->
+          <section class="l-header-region row">
+            <?php print render($page['header']); ?>
+          </section>
+          <!--/.l-header-region -->
+        <?php endif; ?>
+      </div>
+      <!-- /local-title -->
+
+      <!-- local-nav -->
+      <?php if ($alt_main_menu): ?>
+        <nav id="main-menu" class="navigation" role="navigation">
+          <?php if (!empty($page['local_nav'])) : ?>
+            <?php print render($page['local_nav']); ?>
+          <?php else: ?>
+            <?php print ($alt_secondary_menu); ?>
+          <?php endif; ?>
+          <?php if ($alt_user_menu): ?>
+              <?php print $alt_user_menu; ?>
+          <?php endif; ?>
+        </nav> <!-- /#main-menu -->
+      <?php endif; ?>
+      <!-- /local-nav -->
+    </div>
+  </header>
+
+</div>
+<!--/.l-header -->
+
 <!--.page -->
 <div id="content" role="document" class="page">
-
-  <!--.l-header -->
-  <div data-sticky-container>
-    <header id="masthead" class="masthead" data-sticky data-sticky-on="large" data-top-anchor="content:top" data-btm-anchor="content:bottom">
-      <div class="masthead-inner row">
-        <?php if ($top_bar): ?>
-          <!--.top-bar -->
-          <?php if ($top_bar_classes): ?>
-            <div class="<?php print $top_bar_classes; ?>">
-          <?php endif; ?>
-          <nav class="top-bar" data-topbar <?php print $top_bar_options; ?>>
-            <ul class="title-area">
-              <li class="name"><h1><?php print $linked_site_name; ?></h1></li>
-              <li class="toggle-topbar menu-icon">
-                <a href="#"><span><?php print $top_bar_menu_text; ?></span></a></li>
-            </ul>
-            <section class="top-bar-section">
-              <?php if ($top_bar_main_menu) : ?>
-                <?php print $top_bar_main_menu; ?>
-              <?php endif; ?>
-              <?php if ($top_bar_secondary_menu) : ?>
-                <?php print $top_bar_secondary_menu; ?>
-              <?php endif; ?>
-            </section>
-          </nav>
-          <?php if ($top_bar_classes): ?>
-            </div>
-          <?php endif; ?>
-          <!--/.top-bar -->
-        <?php endif; ?>
-
-        <!-- local-title -->
-        <div class="columns medium-12" id="local-title">
-          <?php if (!empty($page['local_title'])) : ?>
-            <?php print render($page['local_title']); ?>
-          <?php else: ?>
-            <h1><a href="<?php print $variables['local_title_path'] ?>" title="Back to <?php print $variables['local_title']; ?>"><?php print $variables['local_title']; ?></a></h1>
-          <?php endif; ?>
-          <?php if (!empty($page['header'])): ?>
-            <!--.l-header-region -->
-            <section class="l-header-region row">
-              <?php print render($page['header']); ?>
-            </section>
-            <!--/.l-header-region -->
-          <?php endif; ?>
-        </div>
-        <!-- /local-title -->
-
-        <!-- local-nav -->
-        <?php if ($alt_main_menu): ?>
-          <nav id="main-menu" class="navigation" role="navigation">
-            <?php if (!empty($page['local_nav'])) : ?>
-              <?php print render($page['local_nav']); ?>
-            <?php else: ?>
-              <?php print ($alt_secondary_menu); ?>
-            <?php endif; ?>
-            <?php if ($alt_user_menu): ?>
-                <?php print $alt_user_menu; ?>
-            <?php endif; ?>
-          </nav> <!-- /#main-menu -->
-        <?php endif; ?>
-        <!-- /local-nav -->
-      </div>
-    </header>
-
-  </div>
-  <!--/.l-header -->
 
   <?php if (!empty($page['featured'])): ?>
     <!--.l-featured -->
