@@ -23,4 +23,4 @@ TINYMCE
 -------
 To integrate this theme with TinyMCE, configure your editor profile in Drupal by:
 1) Under "Editor CSS" select "Define CSS"
-2) Under "CSS path", use: //ebiwd.github.io/EBI-Framework/libraries/foundation-6/css/foundation.css,//ebiwd.github.io/EBI-Framework/css/ebi-global.css,//ebiwd.github.io/EBI-Framework/fonts/fonts.css,//ebiwd.github.io/EBI-Framework/css/theme-embl-petrol.css
+2) Under "CSS path", use: https://ebi.emblstatic.net/web_guidelines/EBI-Framework/libraries/foundation-6/css/foundation.css,https://ebi.emblstatic.net/web_guidelines/EBI-Framework/css/ebi-global.css,https://ebi.emblstatic.net/web_guidelines/EBI-Framework/fonts/fonts.css,https://ebi.emblstatic.net/web_guidelines/EBI-Framework/css/theme-embl-petrol.css
