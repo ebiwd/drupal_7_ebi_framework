@@ -105,7 +105,7 @@
   <meta name="msapplication-TileImage" content="https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/mstile-144x144.png" />
 
   <!-- <meta name="ebi-localmasthead-color" content="#241a00">  -->
-  <!-- <meta name="ebi-localmasthead-image" content="https://ebiwd.github.io/EBI-Framework/images/backgrounds/training-yellow-2.jpg"> -->
+  <!-- <meta name="ebi-localmasthead-image" content="https://ebi.emblstatic.net/web_guidelines/EBI-Framework/images/backgrounds/training-yellow-2.jpg"> -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
