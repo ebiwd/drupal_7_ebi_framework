@@ -88,7 +88,7 @@
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
-  <?php print preg_replace('#https?:#Usm', '', $styles); ?>
+  <?php print preg_replace('#http:#Usm', '', $styles); ?>
   <?php print (ebi_framework_tidy($scripts, $is_admin, $is_prod)); ?>
 
   <!-- If you have custom icon, replace these as appropriate.
