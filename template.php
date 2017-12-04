@@ -449,7 +449,9 @@ function ebi_framework_preprocess_html(&$variables) {
   $framework_version_to_use = theme_get_setting('ebi_framework_version'); //1.1, etc
   $framework_location = 'https://www.ebi.ac.uk/web_guidelines/EBI-Framework/' . 'v' . $framework_version_to_use; // todo: this should be configurable by the UI
 
-  drupal_add_css($framework_location . '/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
+  if (theme_get_setting('ebi_framework_version') == '1.2') {
+    drupal_add_css($framework_location . '/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
+  }
   drupal_add_css($framework_location . '/css/ebi-global.css', array('type' => 'external'));
   drupal_add_css('https://www.ebi.ac.uk/web_guidelines/EBI-Icon-fonts/v1.2/fonts.css', array('type' => 'external'));
   if (theme_get_setting('ebi_framework_style') === 1) {
