@@ -23,4 +23,4 @@ TINYMCE
 -------
 To integrate this theme with TinyMCE, configure your editor profile in Drupal by:
 1) Under "Editor CSS" select "Define CSS"
-2) Under "CSS path", use: //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/css/ebi-global.css, //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/libraries/foundation-6/css/foundation.css, //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/css/ebi-global-drupal.css
+2) Under "CSS path", use: https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.2/css/ebi-global.css, https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.2/libraries/foundation-6/css/foundation.css, https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.2/css/ebi-global-drupal.css
