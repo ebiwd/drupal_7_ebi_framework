@@ -87,7 +87,7 @@
   <?php print render($title_suffix); ?>
 
   <?php if ($display_submitted): ?>
-    <div class="posted">
+    <div class="posted label">
       <?php if ($user_picture): ?>
         <?php print $user_picture; ?>
       <?php endif; ?>
