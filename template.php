@@ -60,7 +60,7 @@ function ebi_framework_breadcrumb($variables) {
     // how many crumbs to trim?
     $howmanytotrim = min((int)theme_get_setting('ebi_framework_strip_first_breadcrumb'),count($breadcrumb));
 
-    for ($i=0; $i < $howmanytotrim; $i++) { 
+    for ($i=0; $i < $howmanytotrim; $i++) {
       unset($breadcrumb[$i]);
     }
   }
@@ -83,7 +83,7 @@ function ebi_framework_breadcrumb($variables) {
       $title = strip_tags(drupal_get_title());
       $breadcrumbs .= '<li class="current"><a href="#">' . $title . '</a></li>';
     }
-    
+
     $breadcrumbs .= '</ul>';
 
     return $breadcrumbs;
@@ -447,13 +447,19 @@ function ebi_framework_preprocess_html(&$variables) {
   // TODO: make use of user specified framework version theme_get_setting('ebi_framework_version')
 
   $framework_version_to_use = theme_get_setting('ebi_framework_version'); //1.1, etc
-  $framework_location = 'https://www.ebi.ac.uk/web_guidelines/EBI-Framework/' . 'v' . $framework_version_to_use; // todo: this should be configurable by the UI
+  $icon_font_version_to_use = theme_get_setting('ebi_icon_font_version'); //1.1, etc
+  $framework_development_version = theme_get_setting('ebi_framework_development_version'); //dev || production
 
-  if (theme_get_setting('ebi_framework_version') == '1.2') {
-    drupal_add_css($framework_location . '/libraries/foundation-6/css/foundation.css', array('type' => 'external'));
+  if ($framework_development_version === 'dev') {
+    $framework_development_version = 'dev.';
+  } else {
+    $framework_development_version = '';
   }
+
+  $framework_location = 'https://' . $framework_development_version . 'ebi.emblstatic.net/web_guidelines/EBI-Framework/' . 'v' . $framework_version_to_use; // todo: this should be configurable by the UI
+
   drupal_add_css($framework_location . '/css/ebi-global.css', array('type' => 'external'));
-  drupal_add_css('https://www.ebi.ac.uk/web_guidelines/EBI-Icon-fonts/v1.2/fonts.css', array('type' => 'external'));
+  drupal_add_css('https://' . $framework_development_version . 'ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v' . $icon_font_version_to_use . '/fonts.css', array('type' => 'external'));
   if (theme_get_setting('ebi_framework_style') === 1) {
     // autodetect the appropriate theme by the url, /research /services, etc.
     $url_parts = explode('/', drupal_get_path_alias());
@@ -488,7 +494,7 @@ function ebi_framework_preprocess_html(&$variables) {
   drupal_add_js($framework_location . '/js/foundationExtendEBI.js', array('type' => 'external', 'scope' => 'footer'));
 
   // Add any CSS files requested in the theme config
-  for ($i=0; $i < 10; $i++) { 
+  for ($i=0; $i < 10; $i++) {
     $targetFile = 'ebi_framework_css_rules_file_'.$i;
     $targetRuleType = 'ebi_framework_css_rules_rule_type_'.$i;
     $targetCSSConditions = 'ebi_framework_css_rules_conditions_'.$i;
@@ -504,7 +510,7 @@ function ebi_framework_preprocess_html(&$variables) {
       }
     }
   }
- 
+
   // Clean up the lang attributes.
   $variables['html_attributes'] = 'lang="' . $language->language . '" dir="' . $language->dir . '"';
 
@@ -1772,8 +1778,8 @@ function ebi_framework_get_host() {
 }
 
 
-function ebi_framework_menu_tree($variables) {  
+function ebi_framework_menu_tree($variables) {
   // print_r($variables);
-  $menu_type = str_replace('menu_tree__menu_', '', $variables['theme_hook_original']);  
+  $menu_type = str_replace('menu_tree__menu_', '', $variables['theme_hook_original']);
   return '<ul class="menu ' . str_replace(array('_', ' '), '-', strtolower($menu_type)) . '-menu">' . $variables['tree'] . '</ul>';
 }

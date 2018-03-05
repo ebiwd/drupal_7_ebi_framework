@@ -66,14 +66,24 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#description' => t('Customise the implementation of the EBI theme.'),
     );
 
+    $form['ebi_framework']['framework']['ebi_icon_font_version'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Icon fonts version'),
+      '#size' => 3,
+      '#maxlength' => 3,
+      '#required' => TRUE,
+      '#default_value' => theme_get_setting('ebi_icon_font_version'),
+      '#description' => t('Specify the version of the EBI Icon Fonts you would like to use; this theme was last tested with version 1.3 and should also be compatible with v1.1 and v1.2 For available versions, see: <a href="https://github.com/ebiwd/EBI-Icons-fonts">the EBI Icon Fonts page on GitHub</a>.'),
+    );
+
     $form['ebi_framework']['framework']['ebi_framework_version'] = array(
       '#type' => 'textfield',
-      '#title' => t('Version'),
-      '#size' => 3, 
-      '#maxlength' => 3, 
+      '#title' => t('Framework version'),
+      '#size' => 3,
+      '#maxlength' => 3,
       '#required' => TRUE,
       '#default_value' => theme_get_setting('ebi_framework_version'),
-      '#description' => t('Specify the version of the framework you would like to use; this theme was last tested with version 1.1. For available versions, see: <a href="https://github.com/ebiwd/EBI-Framework">the framework page on GitHub</a>.'),
+      '#description' => t('Specify the version of the framework you would like to use; this theme was last tested with version 1.3 and is not compatible with earlier versions. For available versions, see: <a href="https://github.com/ebiwd/EBI-Framework">the framework page on GitHub</a>.'),
     );
 
     $form['ebi_framework']['framework']['ebi_framework_style'] = array(
@@ -83,6 +93,18 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#default_value' => theme_get_setting('ebi_framework_style'),
       '#description' => t('By default we use EMBL-EBI colours and assign a pallette by path, such as /research /services, etc. To disable, uncheck this. You can then add custom CSS under "Styles and Scripts".'),
     );
+
+    $form['ebi_framework']['framework']['ebi_framework_development_version'] = array(
+      '#type' => 'select',
+      '#title' => t('Use a development version?'),
+      '#description' => t('If you want to use the dev.ebi.emblstatic.net version of the framework for testing and fonts, you can enable it here.'),
+      '#options' => array(
+        'production' => t('Production'),
+        'dev' => t('Dev'),
+      ),
+      '#default_value' => theme_get_setting('ebi_framework_development_version'),
+    );
+
 
     // Group the rest of the settings in a container to be able to quickly hide
     // them if the Top Bar isn't being used.
@@ -269,7 +291,7 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
     );
 
     // Allow up to 10 custom rules
-    for ($i=0; $i < 10; $i++) { 
+    for ($i=0; $i < 10; $i++) {
       $form['ebi_framework']['styles_scripts']['css_by_page'][$i] = array(
         '#type' => 'fieldset',
         '#title' => t('CSS rule '.($i+1)),
@@ -284,8 +306,8 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       $form['ebi_framework']['styles_scripts']['css_by_page'][$i][$targetFile] = array(
         '#type' => 'textfield',
         '#title' => t('CSS path '.($i+1)),
-        '#size' => 40, 
-        '#maxlength' => 300, 
+        '#size' => 40,
+        '#maxlength' => 300,
         '#default_value' => theme_get_setting($targetFile),
         '#description' => t('The location of the CSS file you want to load'),
       );
