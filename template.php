@@ -811,10 +811,10 @@ function ebi_framework_preprocess_page(&$variables) {
   // Alternative header.
   // This is what will show up if the top bar is disabled or enabled only for
   // mobile.
-  if ($variables['alt_header'] == ($variables['top_bar'] != 1)) {
-    // Hide alt header on mobile if using top bar in mobile.
-    $variables['alt_header_classes'] = $variables['top_bar'] == 2 ? ' hide-for-small' : '';
-  }
+  // if ($variables['alt_header'] == ($variables['top_bar'] != 1)) {
+  //   // Hide alt header on mobile if using top bar in mobile.
+  //   $variables['alt_header_classes'] = $variables['top_bar'] == 2 ? ' hide-for-small' : '';
+  // }
 
   // Menus for alternative header.
   $variables['alt_main_menu'] = '';

@@ -1,5 +1,5 @@
 name = EBI Framework
-description = Enables the use of the EBI Visual Framework v1.3.
+description = Enables the use of the EBI Visual Framework v1.3 as Drupal implementation of the Zurb Foundation 6.x framework. A variant developed by EMBL-EBI.
 core = 7.x
 engine = phptemplate
 
@@ -27,7 +27,7 @@ screenshot = images/screenshot.jpg
   ; stylesheets[all][] = ebi-framework-cdn/css/ebi-global-drupal.css
   ; stylesheets[all][] = ebi-framework-cdn/css/ebi-training-colours.css
 
-; Bonus customisations 
+; Bonus customisations
 scripts[] = js/app.js
 stylesheets[all][] = css/app.css
 
@@ -59,7 +59,9 @@ plugins[panels][styles] = panels_styles
 
 ; Top Bar
 settings[ebi_framework_top_bar_enable] = 0
+settings[ebi_framework_development_version] = 'production'
 settings[ebi_framework_version] = '1.3'
+settings[ebi_icon_font_version] = '1.3'
 settings[ebi_framework_style] = 1
 settings[ebi_framework_top_bar_grid] = 0
 settings[ebi_framework_top_bar_sticky] = 0
@@ -95,4 +97,3 @@ settings[ebi_framework_pager_center] = 1
 version = "7.x-1.3-dev"
 core = "7.x"
 project = "ebi_framework"
-
