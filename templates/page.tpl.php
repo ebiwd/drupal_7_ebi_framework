@@ -1,6 +1,6 @@
 <!--.l-header -->
 <div data-sticky-container>
-  <header id="masthead" class="masthead" data-sticky data-sticky-on="large" data-top-anchor="content:top" data-btm-anchor="content:bottom">
+  <header id="masthead" class="masthead <?php if($variables["use_compact_masthead"]): ?>compact-for-data<?php endif; ?>" data-sticky data-sticky-on="large" data-top-anchor="content:top" data-btm-anchor="content:bottom">
     <div class="masthead-inner row">
       <?php if ($top_bar): ?>
         <!--.top-bar -->
@@ -29,7 +29,7 @@
       <?php endif; ?>
 
       <!-- local-title -->
-      <div class="columns medium-12" id="local-title">
+      <div class="columns <?php if($variables["use_compact_masthead"]): ?>medium-5<?php else: ?>medium-12<?php endif; ?>" id="local-title">
         <?php if (!empty($page['local_title'])) : ?>
           <?php print render($page['local_title']); ?>
         <?php else: ?>
@@ -47,7 +47,7 @@
 
       <!-- local-nav -->
       <?php if ($alt_main_menu): ?>
-        <nav id="main-menu" class="navigation" role="navigation">
+        <nav id="main-menu" class="navigation <?php if($variables["use_compact_masthead"]): ?>columns medium-7<?php endif; ?>" role="navigation">
           <?php if (!empty($page['local_nav'])) : ?>
             <?php print render($page['local_nav']); ?>
           <?php else: ?>

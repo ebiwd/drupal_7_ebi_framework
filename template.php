@@ -1007,6 +1007,13 @@ function ebi_framework_preprocess_page(&$variables) {
     $variables['local_title_path'] = base_path();
   }
 
+  // compact masthead
+  $variables['use_compact_masthead'] = FALSE;
+  if (theme_get_setting("ebi_framework_masthead_compact")) {
+    if (ebi_framework_injector_evaluate_css_rule(theme_get_setting("ebi_framework_masthead_compact_urls_type"),theme_get_setting("ebi_framework_masthead_compact_urls_conditions"))) {
+      $variables['use_compact_masthead'] = TRUE;
+    }
+  }
 }
 
 /**

@@ -56,13 +56,13 @@ plugins[panels][layouts] = layouts
 plugins[panels][styles] = panels_styles
 
 ; Theme settings:
-
-; Top Bar
 settings[ebi_framework_top_bar_enable] = 0
 settings[ebi_framework_development_version] = 'production'
 settings[ebi_framework_version] = '1.3'
 settings[ebi_icon_font_version] = '1.3'
 settings[ebi_framework_style] = 1
+
+; Top Bar
 settings[ebi_framework_top_bar_grid] = 0
 settings[ebi_framework_top_bar_sticky] = 0
 settings[ebi_framework_top_bar_menu_text] = 'Menu'
@@ -93,6 +93,7 @@ settings[ebi_framework_html_tags] = 1
 settings[ebi_framework_messages_modal] = 1
 settings[ebi_framework_messages_modal_static] = 0
 settings[ebi_framework_pager_center] = 1
+settings[ebi_framework_masthead_compact] = 0
 
 version = "7.x-1.3-dev"
 core = "7.x"

@@ -12,3 +12,34 @@ tr.even, tr.odd { background: none; border-bottom: 1px solid #eee; }
 
 .callout.success { background-color: #fff; }
 .filter-help { display: none; }
+
+/* Masthead compact pattern
+   https://www.ebi.ac.uk/style-lab/websites/patterns/masthead-compact.html
+   */
+.masthead.compact-for-data .masthead-inner {
+  padding-top: .5rem;
+}
+
+.masthead.compact-for-data .masthead-inner div#local-title {
+  margin-bottom: 0;
+}
+
+.masthead.compact-for-data .masthead-inner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  margin-top: -.5rem;
+}
+
+.masthead.compact-for-data .masthead-inner form {
+  margin-top: -1rem;
+}
+
+.masthead.compact-for-data .masthead-inner nav {
+  margin-top: .75rem;
+  clear: none;
+}
+
+.masthead.compact-for-data.compact-disabled .masthead-inner > nav.column {
+  width: 100%;
+  left: 0;
+}

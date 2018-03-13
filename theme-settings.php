@@ -410,5 +410,42 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#default_value' => theme_get_setting('ebi_framework_pager_center'),
     );
 
+    $form['ebi_framework']['misc']['ebi_framework_masthead_compact'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Utilise compact masthead pattern'),
+      '#description' => t('Check this option to utilise the compact masthead pattern on the below URLs. For more information, please refer to the <a href="!link" target="_blank">documentation</a>.', array('!link' => 'https://www.ebi.ac.uk/style-lab/websites/patterns/masthead-compact.html')),
+      '#default_value' => theme_get_setting('ebi_framework_masthead_compact'),
+    );
+
+    // Collabsible masthead pattern
+    // https://www.ebi.ac.uk/style-lab/websites/patterns/masthead-compact.html
+    $form['ebi_framework']['misc']['ebi_framework_masthead_compact_urls'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Collpased masthead URLs '),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+    );
+
+    $mastheadTargetRuleType = 'ebi_framework_masthead_compact_urls_type';
+    $mastheadTargetConditions = 'ebi_framework_masthead_compact_urls_conditions';
+
+    $form['ebi_framework']['misc']['ebi_framework_masthead_compact_urls'][$mastheadTargetRuleType] = array(
+      '#type' => 'radios',
+      '#title' => t('Use compact masthead on these specific pages'),
+      '#options' => array(
+        COMPACT_MASTHEAD_PAGES_NOTLISTED => t('Add on every page except the listed pages.'),
+        COMPACT_MASTHEAD_PAGES_LISTED => t('Add on only the listed pages.')
+      ),
+      '#default_value' => COMPACT_MASTHEAD_PAGES_LISTED,
+    );
+
+    $form['ebi_framework']['misc']['ebi_framework_masthead_compact_urls'][$mastheadTargetConditions] = array(
+      '#type' => 'textarea',
+      '#title' => t('Pages'),
+      '#rows' => 2,
+      '#default_value' => theme_get_setting($mastheadTargetConditions),
+      '#description' => t("Enter one page per line as Drupal paths. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page.", array('%blog' => 'blog', '%blog-wildcard' => 'blog/*', '%front' => '<front>')),
+    );
+
   }
 }
