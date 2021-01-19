@@ -83,7 +83,7 @@ function ebi_framework_form_system_theme_settings_alter(&$form, &$form_state) {
       '#maxlength' => 3,
       '#required' => TRUE,
       '#default_value' => theme_get_setting('ebi_framework_version'),
-      '#description' => t('Specify the version of the framework you would like to use; this theme was last tested with version 1.3 and is not compatible with earlier versions. For available versions, see: <a href="https://github.com/ebiwd/EBI-Framework">the framework page on GitHub</a>.'),
+      '#description' => t('Specify the version of the framework you would like to use; this theme was last tested with version 1.4 and 1.3. It is not compatible with earlier versions. For available versions, see: <a href="https://github.com/ebiwd/EBI-Framework">the framework page on GitHub</a>.'),
     );
 
     $form['ebi_framework']['framework']['ebi_framework_style'] = array(

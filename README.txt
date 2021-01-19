@@ -1,8 +1,8 @@
 ABOUT
 ----------------------------------
-This Drupal theme integrate the Foundation Framework v1.2 for Drupal 7.
+This Drupal theme integrates the Foundation Framework v1.4 for Drupal 7.
 
-That theme implementation has been paired down, removing some features that are uneeded for EMBL-EBI sites and has been updated to use Foundation 6.
+That theme implementation has been paired down, removing some features that are not needed for EMBL-EBI sites and has been updated to use Foundation 6.
 
 Originally forked on: 2016-01-08
 
@@ -16,11 +16,11 @@ Do not edit this theme directly, but create a Drupal sub theme: https://www.drup
 MODULES
 -------
 - To use the Foundation JS, you'll need jQuery Update
-- For responsive blocks, install the block_class module (no need to modifyl block.tpl.php) and add your CSS grid classes (medium-4, small-10, etc.) in the block admin page
+- For responsive blocks, install the block_class module (no need to modify block.tpl.php) and add your CSS grid classes (medium-4, small-10, etc.) in the block admin page
 
 
 TINYMCE
 -------
 To integrate this theme with TinyMCE, configure your editor profile in Drupal by:
 1) Under "Editor CSS" select "Define CSS"
-2) Under "CSS path", use: //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/css/ebi-global.css, //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/libraries/foundation-6/css/foundation.css, //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/css/ebi-global-drupal.css
+2) Under "CSS path", use: //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.4/css/ebi-global.css, //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.4/libraries/foundation-6/css/foundation.css, //www.ebi.ac.uk/web_guidelines/EBI-Framework/v1.4/css/ebi-global-drupal.css
