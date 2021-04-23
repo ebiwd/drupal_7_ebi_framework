@@ -43,3 +43,11 @@ tr.even, tr.odd { background: none; border-bottom: 1px solid #eee; }
   width: 100%;
   left: 0;
 }
+
+.pane-content figure.image.float-left {
+  padding-right: 1rem;
+}
+
+.pane-content figure.image.float-right {
+  padding-left: 1rem;
+}
