@@ -26,6 +26,7 @@
 
       if (!$is_prod) {
         $buffer = str_replace('//www.ebi.ac.uk', '//wwwdev.ebi.ac.uk', $buffer);
+        $buffer = str_replace('//ebi.emblstatic.net', '//dev.ebi.emblstatic.net', $buffer);
       }
       $buffer = preg_replace('#(local|global)_(nav)#sm', '$1-$2', $buffer);
       $buffer = preg_replace('#(grid)-(\d+)#sm', '$1_$2', $buffer);
